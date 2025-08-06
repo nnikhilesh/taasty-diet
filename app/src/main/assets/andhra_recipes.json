@@ -1,0 +1,652 @@
+[
+  {
+    "name": "Andhra Chicken Curry",
+    "mealType": "Dinner",
+    "cuisine": "Andhra Pradesh",
+    "pairWith": [
+      "Steamed Rice",
+      "Gongura Pachadi"
+    ],
+    "ingredients": [
+      {
+        "item": "Chicken",
+        "quantity": 500,
+        "unit": "grams"
+      },
+      {
+        "item": "Onion",
+        "quantity": 2,
+        "unit": "pieces"
+      },
+      {
+        "item": "Tomato",
+        "quantity": 2,
+        "unit": "pieces"
+      },
+      {
+        "item": "Ginger",
+        "quantity": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Garlic",
+        "quantity": 8,
+        "unit": "cloves"
+      },
+      {
+        "item": "Red Chilli Powder",
+        "quantity": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Turmeric",
+        "quantity": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Coriander Powder",
+        "quantity": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Cumin Powder",
+        "quantity": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Oil",
+        "quantity": 3,
+        "unit": "tbsp"
+      }
+    ],
+    "macros": {
+      "calories": 320,
+      "protein": 28,
+      "fat": 18,
+      "carbs": 8,
+      "fiber": 3
+    },
+    "instructions": "Marinate chicken with spices. Sauté onions, add tomatoes, then chicken. Cook until tender with Andhra spices.",
+    "servings": 4,
+    "cookedWeightGrams": 800,
+    "tags": [
+      "non-vegetarian",
+      "spicy",
+      "andhra",
+      "curry"
+    ]
+  },
+  {
+    "name": "Gongura Pachadi",
+    "mealType": "Side",
+    "cuisine": "Andhra Pradesh",
+    "pairWith": [
+      "Steamed Rice",
+      "Ghee"
+    ],
+    "ingredients": [
+      {
+        "item": "Gongura Leaves",
+        "quantity": 200,
+        "unit": "grams"
+      },
+      {
+        "item": "Onion",
+        "quantity": 1,
+        "unit": "piece"
+      },
+      {
+        "item": "Green Chilli",
+        "quantity": 3,
+        "unit": "pieces"
+      },
+      {
+        "item": "Garlic",
+        "quantity": 4,
+        "unit": "cloves"
+      },
+      {
+        "item": "Oil",
+        "quantity": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Mustard Seeds",
+        "quantity": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Cumin Seeds",
+        "quantity": 0.5,
+        "unit": "tsp"
+      }
+    ],
+    "macros": {
+      "calories": 85,
+      "protein": 4,
+      "fat": 6,
+      "carbs": 8,
+      "fiber": 5
+    },
+    "instructions": "Cook gongura leaves, grind with spices. Temper with mustard and cumin seeds.",
+    "servings": 4,
+    "cookedWeightGrams": 300,
+    "tags": [
+      "vegetarian",
+      "tangy",
+      "andhra",
+      "chutney"
+    ]
+  },
+  {
+    "name": "Andhra Pesarattu",
+    "mealType": "Breakfast",
+    "cuisine": "Andhra Pradesh",
+    "pairWith": [
+      "Ginger Chutney",
+      "Upma"
+    ],
+    "ingredients": [
+      {
+        "item": "Green Gram",
+        "quantity": 200,
+        "unit": "grams"
+      },
+      {
+        "item": "Rice",
+        "quantity": 50,
+        "unit": "grams"
+      },
+      {
+        "item": "Ginger",
+        "quantity": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Green Chilli",
+        "quantity": 2,
+        "unit": "pieces"
+      },
+      {
+        "item": "Onion",
+        "quantity": 1,
+        "unit": "piece"
+      },
+      {
+        "item": "Oil",
+        "quantity": 2,
+        "unit": "tbsp"
+      }
+    ],
+    "macros": {
+      "calories": 180,
+      "protein": 8,
+      "fat": 4,
+      "carbs": 28,
+      "fiber": 6
+    },
+    "instructions": "Soak green gram and rice, grind with ginger and chilli. Make thin dosas with chopped onions.",
+    "servings": 3,
+    "cookedWeightGrams": 450,
+    "tags": [
+      "vegetarian",
+      "breakfast",
+      "andhra",
+      "dosa"
+    ]
+  },
+  {
+    "name": "Andhra Fish Curry",
+    "mealType": "Dinner",
+    "cuisine": "Andhra Pradesh",
+    "pairWith": [
+      "Steamed Rice",
+      "Gongura Pachadi"
+    ],
+    "ingredients": [
+      {
+        "item": "Fish",
+        "quantity": 500,
+        "unit": "grams"
+      },
+      {
+        "item": "Onion",
+        "quantity": 2,
+        "unit": "pieces"
+      },
+      {
+        "item": "Tomato",
+        "quantity": 2,
+        "unit": "pieces"
+      },
+      {
+        "item": "Ginger",
+        "quantity": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Garlic",
+        "quantity": 6,
+        "unit": "cloves"
+      },
+      {
+        "item": "Red Chilli Powder",
+        "quantity": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Turmeric",
+        "quantity": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Oil",
+        "quantity": 3,
+        "unit": "tbsp"
+      }
+    ],
+    "macros": {
+      "calories": 280,
+      "protein": 32,
+      "fat": 12,
+      "carbs": 6,
+      "fiber": 2
+    },
+    "instructions": "Marinate fish with spices. Cook in spicy Andhra gravy with onions and tomatoes.",
+    "servings": 4,
+    "cookedWeightGrams": 750,
+    "tags": [
+      "non-vegetarian",
+      "spicy",
+      "andhra",
+      "fish"
+    ]
+  },
+  {
+    "name": "Andhra Pulihora",
+    "mealType": "Lunch",
+    "cuisine": "Andhra Pradesh",
+    "pairWith": [
+      "Papad",
+      "Curd"
+    ],
+    "ingredients": [
+      {
+        "item": "Rice",
+        "quantity": 200,
+        "unit": "grams"
+      },
+      {
+        "item": "Tamarind",
+        "quantity": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Peanuts",
+        "quantity": 50,
+        "unit": "grams"
+      },
+      {
+        "item": "Curry Leaves",
+        "quantity": 10,
+        "unit": "pieces"
+      },
+      {
+        "item": "Red Chilli",
+        "quantity": 3,
+        "unit": "pieces"
+      },
+      {
+        "item": "Oil",
+        "quantity": 3,
+        "unit": "tbsp"
+      }
+    ],
+    "macros": {
+      "calories": 420,
+      "protein": 8,
+      "fat": 16,
+      "carbs": 62,
+      "fiber": 4
+    },
+    "instructions": "Cook rice, prepare tamarind paste. Mix with spices, peanuts, and curry leaves.",
+    "servings": 4,
+    "cookedWeightGrams": 600,
+    "tags": [
+      "vegetarian",
+      "tangy",
+      "andhra",
+      "rice"
+    ]
+  },
+  {
+    "name": "Andhra Chicken Biryani",
+    "mealType": "Dinner",
+    "cuisine": "Andhra Pradesh",
+    "pairWith": [
+      "Raita",
+      "Mirchi Ka Salan"
+    ],
+    "ingredients": [
+      {
+        "item": "Basmati Rice",
+        "quantity": 300,
+        "unit": "grams"
+      },
+      {
+        "item": "Chicken",
+        "quantity": 500,
+        "unit": "grams"
+      },
+      {
+        "item": "Onion",
+        "quantity": 3,
+        "unit": "pieces"
+      },
+      {
+        "item": "Tomato",
+        "quantity": 2,
+        "unit": "pieces"
+      },
+      {
+        "item": "Ginger",
+        "quantity": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Garlic",
+        "quantity": 10,
+        "unit": "cloves"
+      },
+      {
+        "item": "Red Chilli Powder",
+        "quantity": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Garam Masala",
+        "quantity": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Oil",
+        "quantity": 4,
+        "unit": "tbsp"
+      }
+    ],
+    "macros": {
+      "calories": 580,
+      "protein": 32,
+      "fat": 22,
+      "carbs": 68,
+      "fiber": 6
+    },
+    "instructions": "Marinate chicken with spices. Layer with partially cooked rice. Dum cook until done.",
+    "servings": 6,
+    "cookedWeightGrams": 1200,
+    "tags": [
+      "non-vegetarian",
+      "spicy",
+      "andhra",
+      "biryani"
+    ]
+  },
+  {
+    "name": "Andhra Mutton Curry",
+    "mealType": "Dinner",
+    "cuisine": "Andhra Pradesh",
+    "pairWith": [
+      "Steamed Rice",
+      "Gongura Pachadi"
+    ],
+    "ingredients": [
+      {
+        "item": "Mutton",
+        "quantity": 500,
+        "unit": "grams"
+      },
+      {
+        "item": "Onion",
+        "quantity": 3,
+        "unit": "pieces"
+      },
+      {
+        "item": "Tomato",
+        "quantity": 2,
+        "unit": "pieces"
+      },
+      {
+        "item": "Ginger",
+        "quantity": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Garlic",
+        "quantity": 12,
+        "unit": "cloves"
+      },
+      {
+        "item": "Red Chilli Powder",
+        "quantity": 3,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Turmeric",
+        "quantity": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Oil",
+        "quantity": 4,
+        "unit": "tbsp"
+      }
+    ],
+    "macros": {
+      "calories": 380,
+      "protein": 36,
+      "fat": 24,
+      "carbs": 8,
+      "fiber": 3
+    },
+    "instructions": "Pressure cook mutton with spices. Add sautéed onions and tomatoes. Cook until gravy thickens.",
+    "servings": 4,
+    "cookedWeightGrams": 800,
+    "tags": [
+      "non-vegetarian",
+      "spicy",
+      "andhra",
+      "curry"
+    ]
+  },
+  {
+    "name": "Andhra Tomato Curry",
+    "mealType": "Lunch",
+    "cuisine": "Andhra Pradesh",
+    "pairWith": [
+      "Steamed Rice",
+      "Ghee"
+    ],
+    "ingredients": [
+      {
+        "item": "Tomato",
+        "quantity": 500,
+        "unit": "grams"
+      },
+      {
+        "item": "Onion",
+        "quantity": 2,
+        "unit": "pieces"
+      },
+      {
+        "item": "Ginger",
+        "quantity": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Garlic",
+        "quantity": 6,
+        "unit": "cloves"
+      },
+      {
+        "item": "Red Chilli Powder",
+        "quantity": 1.5,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Turmeric",
+        "quantity": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Oil",
+        "quantity": 3,
+        "unit": "tbsp"
+      }
+    ],
+    "macros": {
+      "calories": 120,
+      "protein": 4,
+      "fat": 8,
+      "carbs": 12,
+      "fiber": 4
+    },
+    "instructions": "Sauté onions, add tomatoes and spices. Cook until tomatoes are soft and gravy thickens.",
+    "servings": 4,
+    "cookedWeightGrams": 600,
+    "tags": [
+      "vegetarian",
+      "tangy",
+      "andhra",
+      "curry"
+    ]
+  },
+  {
+    "name": "Andhra Egg Curry",
+    "mealType": "Breakfast",
+    "cuisine": "Andhra Pradesh",
+    "pairWith": [
+      "Steamed Rice",
+      "Bread"
+    ],
+    "ingredients": [
+      {
+        "item": "Eggs",
+        "quantity": 6,
+        "unit": "pieces"
+      },
+      {
+        "item": "Onion",
+        "quantity": 2,
+        "unit": "pieces"
+      },
+      {
+        "item": "Tomato",
+        "quantity": 2,
+        "unit": "pieces"
+      },
+      {
+        "item": "Ginger",
+        "quantity": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Garlic",
+        "quantity": 6,
+        "unit": "cloves"
+      },
+      {
+        "item": "Red Chilli Powder",
+        "quantity": 1.5,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Oil",
+        "quantity": 3,
+        "unit": "tbsp"
+      }
+    ],
+    "macros": {
+      "calories": 280,
+      "protein": 18,
+      "fat": 20,
+      "carbs": 8,
+      "fiber": 2
+    },
+    "instructions": "Boil eggs, make slits. Cook in spicy Andhra gravy with onions and tomatoes.",
+    "servings": 3,
+    "cookedWeightGrams": 500,
+    "tags": [
+      "vegetarian",
+      "spicy",
+      "andhra",
+      "egg"
+    ]
+  },
+  {
+    "name": "Andhra Vegetable Pulao",
+    "mealType": "Lunch",
+    "cuisine": "Andhra Pradesh",
+    "pairWith": [
+      "Raita",
+      "Papad"
+    ],
+    "ingredients": [
+      {
+        "item": "Basmati Rice",
+        "quantity": 250,
+        "unit": "grams"
+      },
+      {
+        "item": "Mixed Vegetables",
+        "quantity": 200,
+        "unit": "grams"
+      },
+      {
+        "item": "Onion",
+        "quantity": 2,
+        "unit": "pieces"
+      },
+      {
+        "item": "Ginger",
+        "quantity": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Garlic",
+        "quantity": 6,
+        "unit": "cloves"
+      },
+      {
+        "item": "Red Chilli Powder",
+        "quantity": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Garam Masala",
+        "quantity": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Oil",
+        "quantity": 3,
+        "unit": "tbsp"
+      }
+    ],
+    "macros": {
+      "calories": 420,
+      "protein": 8,
+      "fat": 12,
+      "carbs": 72,
+      "fiber": 6
+    },
+    "instructions": "Sauté vegetables and spices. Add rice and water. Cook until rice is done.",
+    "servings": 4,
+    "cookedWeightGrams": 800,
+    "tags": [
+      "vegetarian",
+      "spicy",
+      "andhra",
+      "pulao"
+    ]
+  }
+] 

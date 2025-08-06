@@ -1,0 +1,658 @@
+item_name,category,unit
+onion,Vegetable,kg
+tomato,Vegetable,kg
+potato,Vegetable,kg
+carrot,Vegetable,kg
+beans,Vegetable,kg
+brinjal,Vegetable,kg
+banana,Fruit,dozen
+apple,Fruit,kg
+mango,Fruit,piece
+milk,Dairy,litre
+curd,Dairy,kg
+paneer,Dairy,kg
+butter,Dairy,packet
+ghee,Dairy,kg
+cheese,Dairy,packet
+bread,Bakery,packet
+egg,Protein,piece
+dal,Protein,kg
+moong dal,Protein,kg
+toor dal,Protein,kg
+urad dal,Protein,kg
+chana dal,Protein,kg
+masoor dal,Protein,kg
+rajma,Protein,kg
+chickpeas,Protein,kg
+green gram,Protein,kg
+black gram,Protein,kg
+kidney beans,Protein,kg
+soybean,Protein,kg
+sugar,Grocery,kg
+salt,Grocery,kg
+rice,Grains,kg
+basmati rice,Grains,kg
+sona masoori rice,Grains,kg
+brown rice,Grains,kg
+parboiled rice,Grains,kg
+wheat flour,Grocery,kg
+maida,Grocery,kg
+ragi flour,Grocery,kg
+bajra flour,Grocery,kg
+jowar flour,Grocery,kg
+multigrain flour,Grocery,kg
+semolina,Grocery,kg
+vermicelli,Grocery,packet
+poha,Grocery,kg
+suji,Grocery,kg
+idli rava,Grains,kg
+dosa rice,Grains,kg
+cornflour,Grocery,packet
+cornmeal,Grocery,kg
+pasta,Grocery,packet
+macaroni,Grocery,packet
+noodles,Grocery,packet
+maggi,Grocery,packet
+oats,Grocery,box
+cornflakes,Grocery,box
+muesli,Grocery,box
+biscuits,Snacks,packet
+namkeen,Snacks,packet
+chips,Snacks,packet
+popcorn,Snacks,packet
+peanuts,Snacks,packet
+cashew,Snacks,packet
+almond,Snacks,packet
+walnut,Snacks,packet
+raisin,Snacks,packet
+foxnut,Snacks,packet
+pumpkin seeds,Snacks,packet
+sunflower seeds,Snacks,packet
+tea powder,Beverage,packet
+coffee,Beverage,packet
+green tea,Beverage,packet
+lemon tea,Beverage,packet
+black tea,Beverage,packet
+milk powder,Dairy,packet
+buttermilk,Dairy,bottle
+lassi,Dairy,bottle
+juice,Beverage,bottle
+soft drink,Beverage,bottle
+coconut water,Beverage,bottle
+soda,Beverage,bottle
+water bottle,Beverage,bottle
+mineral water,Beverage,bottle
+paneer,Dairy,kg
+curd,Dairy,kg
+cream,Dairy,packet
+fresh cream,Dairy,packet
+ice cream,Snacks,box
+ketchup,Condiments,bottle
+mayonnaise,Condiments,jar
+mustard sauce,Condiments,bottle
+soy sauce,Condiments,bottle
+vinegar,Condiments,bottle
+chilli sauce,Condiments,bottle
+tomato sauce,Condiments,bottle
+jam,Condiments,bottle
+pickle,Snacks,bottle
+honey,Grocery,bottle
+jaggery,Grocery,kg
+candy,Snacks,packet
+chocolate,Snacks,packet
+sambar powder,Spice,packet
+rasam powder,Spice,packet
+chilli powder,Spice,packet
+coriander powder,Spice,packet
+turmeric,Spice,packet
+mustard,Spice,packet
+cumin,Spice,packet
+fennel,Spice,packet
+carom seeds,Spice,packet
+fenugreek,Spice,packet
+asafoetida,Spice,packet
+cloves,Spice,packet
+cardamom,Spice,packet
+cinnamon,Spice,packet
+nutmeg,Spice,packet
+pepper,Spice,packet
+black pepper,Spice,packet
+white pepper,Spice,packet
+bay leaf,Spice,packet
+star anise,Spice,packet
+mace,Spice,packet
+dried ginger,Spice,packet
+garam masala,Spice,packet
+pav bhaji masala,Spice,packet
+chole masala,Spice,packet
+chat masala,Spice,packet
+biryani masala,Spice,packet
+tandoori masala,Spice,packet
+sabji masala,Spice,packet
+kitchen king,Spice,packet
+dhaniya powder,Spice,packet
+jeera powder,Spice,packet
+idli podi,Spice,packet
+gunpowder,Spice,packet
+garlic,Vegetable,kg
+ginger,Vegetable,kg
+green chilli,Vegetable,kg
+red chilli,Vegetable,kg
+coriander leaves,Vegetable,bunch
+curry leaves,Vegetable,bunch
+mint,Vegetable,bunch
+spring onion,Vegetable,bunch
+beetroot,Vegetable,kg
+pumpkin,Vegetable,kg
+bottle gourd,Vegetable,kg
+bitter gourd,Vegetable,kg
+ridge gourd,Vegetable,kg
+snake gourd,Vegetable,kg
+ash gourd,Vegetable,kg
+pointed gourd,Vegetable,kg
+ivy gourd,Vegetable,kg
+capsicum,Vegetable,kg
+peas,Vegetable,kg
+sweet corn,Vegetable,kg
+mushroom,Vegetable,kg
+cabbage,Vegetable,kg
+cauliflower,Vegetable,kg
+lettuce,Vegetable,bunch
+broccoli,Vegetable,kg
+zucchini,Vegetable,kg
+turnip,Vegetable,kg
+radish,Vegetable,kg
+kohlrabi,Vegetable,kg
+yam,Vegetable,kg
+taro root,Vegetable,kg
+colocasia,Vegetable,kg
+sweet potato,Vegetable,kg
+lemon,Vegetable,kg
+lime,Vegetable,kg
+orange,Fruit,kg
+sweet lime,Fruit,kg
+papaya,Fruit,kg
+watermelon,Fruit,kg
+muskmelon,Fruit,kg
+pomegranate,Fruit,kg
+grapes,Fruit,kg
+chikoo,Fruit,kg
+guava,Fruit,kg
+jackfruit,Fruit,kg
+pineapple,Fruit,kg
+pear,Fruit,kg
+plum,Fruit,kg
+lychee,Fruit,kg
+strawberry,Fruit,box
+blueberry,Fruit,box
+blackberry,Fruit,box
+raspberry,Fruit,box
+cranberry,Fruit,box
+fig,Fruit,kg
+date,Fruit,kg
+apricot,Fruit,kg
+prune,Fruit,kg
+kiwi,Fruit,kg
+avocado,Fruit,kg
+passion fruit,Fruit,kg
+dragon fruit,Fruit,kg
+star fruit,Fruit,kg
+persimmon,Fruit,kg
+mulberry,Fruit,kg
+coconut,Vegetable,piece
+coconut oil,Grocery,litre
+groundnut oil,Grocery,litre
+mustard oil,Grocery,litre
+sunflower oil,Grocery,litre
+rice bran oil,Grocery,litre
+soybean oil,Grocery,litre
+sesame oil,Grocery,litre
+olive oil,Grocery,litre
+dalda,Grocery,packet
+saffola oil,Grocery,litre
+fortune oil,Grocery,litre
+nature fresh oil,Grocery,litre
+sundrop oil,Grocery,litre
+fortune rice bran oil,Grocery,litre
+parachute coconut oil,Grocery,litre
+milky mist paneer,Dairy,kg
+amul butter,Dairy,packet
+amul cheese,Dairy,packet
+milky mist curd,Dairy,kg
+nestle milkmaid,Dairy,can
+nestle everyday milk powder,Dairy,packet
+methi leaves,Vegetable,bunch
+drumstick,Vegetable,kg
+tindora,Vegetable,kg
+turnip,Vegetable,kg
+radish,Vegetable,kg
+parwal,Vegetable,kg
+lotus stem,Vegetable,kg
+arbi,Vegetable,kg
+parsnip,Vegetable,kg
+sweet corn,Vegetable,kg
+baby corn,Vegetable,packet
+cucumber,Vegetable,kg
+okra,Vegetable,kg
+red pumpkin,Vegetable,kg
+white pumpkin,Vegetable,kg
+green peas,Vegetable,kg
+green beans,Vegetable,kg
+french beans,Vegetable,kg
+cluster beans,Vegetable,kg
+broad beans,Vegetable,kg
+flat beans,Vegetable,kg
+edamame,Vegetable,packet
+jalapeno,Vegetable,packet
+bell pepper,Vegetable,kg
+yellow capsicum,Vegetable,kg
+red capsicum,Vegetable,kg
+green capsicum,Vegetable,kg
+bok choy,Vegetable,bunch
+leeks,Vegetable,bunch
+shallots,Vegetable,kg
+scallions,Vegetable,bunch
+kale,Vegetable,bunch
+spinach,Vegetable,bunch
+amaranth leaves,Vegetable,bunch
+colocasia leaves,Vegetable,bunch
+mustard greens,Vegetable,bunch
+spring greens,Vegetable,bunch
+cabbage,Vegetable,kg
+napa cabbage,Vegetable,kg
+red cabbage,Vegetable,kg
+sauerkraut,Vegetable,packet
+kimchi,Vegetable,packet
+artichoke,Vegetable,piece
+asparagus,Vegetable,bunch
+celery,Vegetable,bunch
+endive,Vegetable,bunch
+radicchio,Vegetable,packet
+swiss chard,Vegetable,bunch
+zucchini,Vegetable,kg
+eggplant,Vegetable,kg
+courgette,Vegetable,kg
+squash,Vegetable,kg
+acorn squash,Vegetable,kg
+butternut squash,Vegetable,kg
+spaghetti squash,Vegetable,kg
+pumpkin seeds,Snacks,packet
+sunflower seeds,Snacks,packet
+water chestnut,Vegetable,kg
+aviyal mix,Vegetable,packet
+sambar mix,Vegetable,packet
+mixed vegetables,Vegetable,kg
+fruit salad mix,Fruit,packet
+apple,Fruit,kg
+green apple,Fruit,kg
+red apple,Fruit,kg
+banana,Fruit,dozen
+robusta banana,Fruit,dozen
+elakki banana,Fruit,dozen
+yam,Vegetable,kg
+raw banana,Vegetable,kg
+plantain,Vegetable,kg
+black grapes,Fruit,kg
+green grapes,Fruit,kg
+red grapes,Fruit,kg
+seedless grapes,Fruit,kg
+seeded grapes,Fruit,kg
+muskmelon,Fruit,kg
+watermelon,Fruit,kg
+cantaloupe,Fruit,kg
+honeydew melon,Fruit,kg
+kiwi,Fruit,kg
+guava,Fruit,kg
+pear,Fruit,kg
+peach,Fruit,kg
+plum,Fruit,kg
+apricot,Fruit,kg
+nectarine,Fruit,kg
+lychee,Fruit,kg
+longan,Fruit,kg
+rambutan,Fruit,kg
+mangosteen,Fruit,kg
+starfruit,Fruit,kg
+dragonfruit,Fruit,kg
+persimmon,Fruit,kg
+passionfruit,Fruit,kg
+jackfruit,Fruit,kg
+chikoo,Fruit,kg
+sapota,Fruit,kg
+pomegranate,Fruit,kg
+papaya,Fruit,kg
+pineapple,Fruit,kg
+custard apple,Fruit,kg
+soursop,Fruit,kg
+fig,Fruit,kg
+date,Fruit,kg
+dry date,Fruit,kg
+blackberry,Fruit,packet
+blueberry,Fruit,packet
+raspberry,Fruit,packet
+cranberry,Fruit,packet
+gooseberry,Fruit,packet
+amla,Fruit,kg
+jamun,Fruit,kg
+ber,Fruit,kg
+mulberry,Fruit,kg
+tamarind,Fruit,kg
+dry coconut,Fruit,kg
+coconut,Fruit,piece
+tender coconut,Fruit,piece
+kopra,Fruit,kg
+peanut,Snacks,kg
+roasted chana,Snacks,packet
+masala peanut,Snacks,packet
+boondi,Snacks,packet
+mixture,Snacks,packet
+sev,Snacks,packet
+bhujia,Snacks,packet
+khakra,Snacks,packet
+papad,Snacks,packet
+vada,Snacks,packet
+samosa,Snacks,packet
+kachori,Snacks,packet
+jalebi,Snacks,packet
+laddu,Snacks,packet
+mysore pak,Snacks,packet
+barfi,Snacks,packet
+peda,Snacks,packet
+rasgulla,Snacks,packet
+gulab jamun,Snacks,packet
+soan papdi,Snacks,packet
+halwa,Snacks,packet
+chakli,Snacks,packet
+murukku,Snacks,packet
+muruku,Snacks,packet
+ribbon pakoda,Snacks,packet
+karasev,Snacks,packet
+thattai,Snacks,packet
+oats,Grocery,packet
+corn flakes,Grocery,packet
+wheat flakes,Grocery,packet
+muesli,Grocery,packet
+ragi flakes,Grocery,packet
+dalia,Grocery,kg
+broken wheat,Grocery,kg
+quinoa,Grocery,kg
+couscous,Grocery,kg
+barley,Grocery,kg
+millets,Grocery,kg
+little millet,Grocery,kg
+foxtail millet,Grocery,kg
+kodo millet,Grocery,kg
+barnyard millet,Grocery,kg
+proso millet,Grocery,kg
+pearl millet,Grocery,kg
+finger millet,Grocery,kg
+sorghum,Grocery,kg
+jowar,Grocery,kg
+bajra,Grocery,kg
+samai,Grocery,kg
+varagu,Grocery,kg
+thinai,Grocery,kg
+kuthiraivali,Grocery,kg
+idiyappam flour,Grocery,kg
+puttu flour,Grocery,kg
+rava idli mix,Grocery,packet
+dosa mix,Grocery,packet
+uttapam mix,Grocery,packet
+upma mix,Grocery,packet
+pongal mix,Grocery,packet
+sambar powder,Spice,packet
+rasam powder,Spice,packet
+biryani masala,Spice,packet
+pav bhaji masala,Spice,packet
+korma masala,Spice,packet
+chicken masala,Spice,packet
+mutton masala,Spice,packet
+fish masala,Spice,packet
+egg masala,Spice,packet
+garam masala,Spice,packet
+chole masala,Spice,packet
+rajma masala,Spice,packet
+chat masala,Spice,packet
+sabzi masala,Spice,packet
+tandoori masala,Spice,packet
+curry powder,Spice,packet
+dhaniya powder,Spice,packet
+jeera powder,Spice,packet
+fennel powder,Spice,packet
+coriander seeds,Spice,packet
+mustard seeds,Spice,packet
+black pepper,Spice,packet
+white pepper,Spice,packet
+cloves,Spice,packet
+cardamom,Spice,packet
+green cardamom,Spice,packet
+black cardamom,Spice,packet
+cinnamon,Spice,packet
+bay leaf,Spice,packet
+star anise,Spice,packet
+nutmeg,Spice,packet
+mace,Spice,packet
+kasuri methi,Spice,packet
+fenugreek seeds,Spice,packet
+asafoetida,Spice,packet
+hing,Spice,packet
+tamarind,Spice,packet
+dry ginger,Spice,packet
+turmeric,Spice,packet
+turmeric powder,Spice,packet
+chilli powder,Spice,packet
+red chilli powder,Spice,packet
+kashmiri chilli powder,Spice,packet
+green chilli powder,Spice,packet
+white pepper powder,Spice,packet
+black salt,Spice,packet
+rock salt,Spice,packet
+table salt,Spice,packet
+ajwain,Spice,packet
+oregano,Spice,packet
+thyme,Spice,packet
+basil,Spice,packet
+parsley,Spice,packet
+rosemary,Spice,packet
+sage,Spice,packet
+dill,Spice,packet
+mint,Spice,packet
+curry leaves,Spice,packet
+poppy seeds,Spice,packet
+flax seeds,Spice,packet
+sesame seeds,Spice,packet
+chia seeds,Spice,packet
+mustard oil,Grocery,litre
+groundnut oil,Grocery,litre
+rice bran oil,Grocery,litre
+sunflower oil,Grocery,litre
+soybean oil,Grocery,litre
+sesame oil,Grocery,litre
+olive oil,Grocery,litre
+coconut oil,Grocery,litre
+butter,Dairy,packet
+ghee,Dairy,kg
+milk,Dairy,litre
+condensed milk,Dairy,can
+evaporated milk,Dairy,can
+milk powder,Dairy,packet
+curd,Dairy,kg
+paneer,Dairy,kg
+cheese,Dairy,packet
+cream,Dairy,packet
+fresh cream,Dairy,packet
+malai,Dairy,packet
+buttermilk,Dairy,bottle
+lassi,Dairy,bottle
+shrikhand,Dairy,packet
+yogurt,Dairy,packet
+kefir,Dairy,packet
+ice cream,Snacks,box
+kulfi,Snacks,box
+falooda,Snacks,box
+popsicle,Snacks,box
+jam,Condiments,bottle
+marmalade,Condiments,bottle
+jelly,Condiments,bottle
+peanut butter,Condiments,jar
+chocolate spread,Condiments,jar
+nutella,Condiments,jar
+mayonnaise,Condiments,jar
+mustard sauce,Condiments,bottle
+soy sauce,Condiments,bottle
+tomato ketchup,Condiments,bottle
+green chutney,Condiments,bottle
+tamarind chutney,Condiments,bottle
+coconut chutney,Condiments,bottle
+schezwan sauce,Condiments,bottle
+salsa,Condiments,jar
+pickle,Snacks,bottle
+lemon pickle,Snacks,bottle
+mango pickle,Snacks,bottle
+mixed pickle,Snacks,bottle
+garlic pickle,Snacks,bottle
+onion pickle,Snacks,bottle
+red chilli pickle,Snacks,bottle
+carrot pickle,Snacks,bottle
+beetroot pickle,Snacks,bottle
+amla pickle,Snacks,bottle
+gunda pickle,Snacks,bottle
+chicken,Non-Veg,kg
+fish,Non-Veg,kg
+mutton,Non-Veg,kg
+pork,Non-Veg,kg
+beef,Non-Veg,kg
+lamb,Non-Veg,kg
+turkey,Non-Veg,kg
+duck,Non-Veg,kg
+shrimp,Non-Veg,kg
+prawn,Non-Veg,kg
+crab,Non-Veg,kg
+lobster,Non-Veg,kg
+salmon,Non-Veg,kg
+tuna,Non-Veg,kg
+cod,Non-Veg,kg
+tilapia,Non-Veg,kg
+rohu,Non-Veg,kg
+katla,Non-Veg,kg
+pomfret,Non-Veg,kg
+bangda,Non-Veg,kg
+surmai,Non-Veg,kg
+bombay duck,Non-Veg,kg
+chapati,Bakery,piece
+roti,Bakery,piece
+naan,Bakery,piece
+paratha,Bakery,piece
+poori,Bakery,piece
+bhatura,Bakery,piece
+kulcha,Bakery,piece
+tandoori roti,Bakery,piece
+missi roti,Bakery,piece
+makki ki roti,Bakery,piece
+jowar roti,Bakery,piece
+bajra roti,Bakery,piece
+ragi roti,Bakery,piece
+multigrain roti,Bakery,piece
+whole wheat roti,Bakery,piece
+pizza,Bakery,piece
+burger,Bakery,piece
+sandwich,Bakery,piece
+hot dog,Bakery,piece
+doughnut,Bakery,piece
+croissant,Bakery,piece
+muffin,Bakery,piece
+cupcake,Bakery,piece
+cake,Bakery,piece
+pastry,Bakery,piece
+cookie,Bakery,piece
+brownie,Bakery,piece
+pie,Bakery,piece
+tart,Bakery,piece
+bagel,Bakery,piece
+pretzel,Bakery,piece
+cracker,Bakery,piece
+wafer,Bakery,packet
+rusk,Bakery,packet
+toast,Bakery,piece
+garlic bread,Bakery,piece
+french bread,Bakery,piece
+sourdough bread,Bakery,piece
+whole wheat bread,Bakery,packet
+brown bread,Bakery,packet
+white bread,Bakery,packet
+multigrain bread,Bakery,packet
+rye bread,Bakery,packet
+pita bread,Bakery,packet
+tortilla,Bakery,packet
+wheat tortilla,Bakery,packet
+corn tortilla,Bakery,packet
+flatbread,Bakery,piece
+lavash,Bakery,piece
+matzo,Bakery,packet
+challah,Bakery,piece
+brioche,Bakery,piece
+ciabatta,Bakery,piece
+focaccia,Bakery,piece
+soda bread,Bakery,piece
+banana bread,Bakery,piece
+zucchini bread,Bakery,piece
+pumpkin bread,Bakery,piece
+cornbread,Bakery,piece
+gingerbread,Bakery,piece
+fruit bread,Bakery,piece
+nut bread,Bakery,piece
+seed bread,Bakery,piece
+sprouted bread,Bakery,piece
+gluten free bread,Bakery,packet
+low carb bread,Bakery,packet
+diabetic bread,Bakery,packet
+protein bread,Bakery,packet
+fiber bread,Bakery,packet
+calcium bread,Bakery,packet
+iron bread,Bakery,packet
+vitamin bread,Bakery,packet
+mineral bread,Bakery,packet
+antioxidant bread,Bakery,packet
+probiotic bread,Bakery,packet
+prebiotic bread,Bakery,packet
+organic bread,Bakery,packet
+natural bread,Bakery,packet
+artisan bread,Bakery,piece
+rustic bread,Bakery,piece
+country bread,Bakery,piece
+village bread,Bakery,piece
+peasant bread,Bakery,piece
+farmhouse bread,Bakery,piece
+cottage bread,Bakery,piece
+hearth bread,Bakery,piece
+stone ground bread,Bakery,piece
+milled bread,Bakery,piece
+ground bread,Bakery,piece
+crushed bread,Bakery,piece
+pulverized bread,Bakery,piece
+powdered bread,Bakery,piece
+granulated bread,Bakery,piece
+crystallized bread,Bakery,piece
+caramelized bread,Bakery,piece
+toasted bread,Bakery,piece
+grilled bread,Bakery,piece
+baked bread,Bakery,piece
+fried bread,Bakery,piece
+steamed bread,Bakery,piece
+boiled bread,Bakery,piece
+roasted bread,Bakery,piece
+smoked bread,Bakery,piece
+cured bread,Bakery,piece
+fermented bread,Bakery,piece
+aged bread,Bakery,piece
+ripened bread,Bakery,piece
+matured bread,Bakery,piece
+seasoned bread,Bakery,piece
+spiced bread,Bakery,piece
+herbed bread,Bakery,piece
+flavored bread,Bakery,piece
+aromatic bread,Bakery,piece
+fragrant bread,Bakery,piece
+scented bread,Bakery,piece
+perfumed bread,Bakery,piece
+

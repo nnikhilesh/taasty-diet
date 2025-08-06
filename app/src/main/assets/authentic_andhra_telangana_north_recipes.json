@@ -1,0 +1,501 @@
+[
+  {
+    "name": "Gongura Pachadi",
+    "mealType": "Side",
+    "cuisine": "Andhra Pradesh",
+    "pairWith": ["Steamed Rice", "Ghee"],
+    "ingredients": [
+      {"item": "Gongura Leaves", "quantity": 200, "unit": "grams"},
+      {"item": "Onion", "quantity": 1, "unit": "medium"},
+      {"item": "Green Chilli", "quantity": 3, "unit": "pieces"},
+      {"item": "Garlic", "quantity": 4, "unit": "cloves"},
+      {"item": "Oil", "quantity": 2, "unit": "tbsp"}
+    ],
+    "macros": {
+      "calories": 120,
+      "protein": 4,
+      "fat": 8,
+      "carbs": 12,
+      "fiber": 6
+    },
+    "instructions": "Clean gongura leaves, sauté with onions, chillies, and garlic. Grind to paste with salt and temper with mustard seeds.",
+    "servings": 4,
+    "cookedWeightGrams": 300,
+    "tags": ["vegetarian", "spicy", "andhra", "chutney"]
+  },
+  {
+    "name": "Andhra Chicken Curry",
+    "mealType": "Dinner",
+    "cuisine": "Andhra Pradesh",
+    "pairWith": ["Steamed Rice", "Gongura Pachadi"],
+    "ingredients": [
+      {"item": "Chicken", "quantity": 500, "unit": "grams"},
+      {"item": "Onion", "quantity": 2, "unit": "medium"},
+      {"item": "Tomato", "quantity": 2, "unit": "medium"},
+      {"item": "Ginger", "quantity": 1, "unit": "tbsp"},
+      {"item": "Garlic", "quantity": 8, "unit": "cloves"},
+      {"item": "Red Chilli Powder", "quantity": 2, "unit": "tbsp"},
+      {"item": "Turmeric", "quantity": 0.5, "unit": "tsp"},
+      {"item": "Coriander Powder", "quantity": 1, "unit": "tsp"},
+      {"item": "Oil", "quantity": 3, "unit": "tbsp"}
+    ],
+    "macros": {
+      "calories": 320,
+      "protein": 28,
+      "fat": 18,
+      "carbs": 8,
+      "fiber": 3
+    },
+    "instructions": "Marinate chicken with spices. Sauté onions, add tomatoes, then chicken. Cook until tender with Andhra spices.",
+    "servings": 4,
+    "cookedWeightGrams": 800,
+    "tags": ["non-vegetarian", "spicy", "andhra", "curry"]
+  },
+  {
+    "name": "Pesarattu",
+    "mealType": "Breakfast",
+    "cuisine": "Andhra Pradesh",
+    "pairWith": ["Ginger Chutney", "Coconut Chutney"],
+    "ingredients": [
+      {"item": "Green Moong Dal", "quantity": 1, "unit": "cup"},
+      {"item": "Rice", "quantity": 0.25, "unit": "cup"},
+      {"item": "Ginger", "quantity": 1, "unit": "tsp"},
+      {"item": "Green Chilli", "quantity": 2, "unit": "pieces"},
+      {"item": "Oil", "quantity": 2, "unit": "tbsp"}
+    ],
+    "macros": {
+      "calories": 180,
+      "protein": 8,
+      "fat": 6,
+      "carbs": 25,
+      "fiber": 4
+    },
+    "instructions": "Soak moong dal and rice, grind with ginger and chillies. Make thin dosas on hot tawa.",
+    "servings": 3,
+    "cookedWeightGrams": 450,
+    "tags": ["vegetarian", "protein-rich", "andhra", "breakfast"]
+  },
+  {
+    "name": "Gutti Vankaya",
+    "mealType": "Side",
+    "cuisine": "Andhra Pradesh",
+    "pairWith": ["Steamed Rice", "Dal"],
+    "ingredients": [
+      {"item": "Brinjal", "quantity": 4, "unit": "medium"},
+      {"item": "Onion", "quantity": 1, "unit": "medium"},
+      {"item": "Peanuts", "quantity": 0.25, "unit": "cup"},
+      {"item": "Sesame Seeds", "quantity": 2, "unit": "tbsp"},
+      {"item": "Red Chilli Powder", "quantity": 1, "unit": "tbsp"},
+      {"item": "Oil", "quantity": 3, "unit": "tbsp"}
+    ],
+    "macros": {
+      "calories": 200,
+      "protein": 6,
+      "fat": 12,
+      "carbs": 18,
+      "fiber": 7
+    },
+    "instructions": "Stuff brinjals with ground onion, peanuts, sesame, and spices. Cook in oil until tender.",
+    "servings": 4,
+    "cookedWeightGrams": 500,
+    "tags": ["vegetarian", "spicy", "andhra", "stuffed"]
+  },
+  {
+    "name": "Pulihora",
+    "mealType": "Lunch",
+    "cuisine": "Andhra Pradesh",
+    "pairWith": ["Papad", "Curd"],
+    "ingredients": [
+      {"item": "Rice", "quantity": 1, "unit": "cup"},
+      {"item": "Tamarind", "quantity": 2, "unit": "tbsp"},
+      {"item": "Peanuts", "quantity": 0.25, "unit": "cup"},
+      {"item": "Curry Leaves", "quantity": 1, "unit": "sprig"},
+      {"item": "Turmeric", "quantity": 0.5, "unit": "tsp"},
+      {"item": "Oil", "quantity": 3, "unit": "tbsp"}
+    ],
+    "macros": {
+      "calories": 280,
+      "protein": 6,
+      "fat": 10,
+      "carbs": 45,
+      "fiber": 3
+    },
+    "instructions": "Cook rice, prepare tamarind paste, temper with peanuts and curry leaves. Mix with rice and spices.",
+    "servings": 4,
+    "cookedWeightGrams": 600,
+    "tags": ["vegetarian", "tangy", "andhra", "rice"]
+  },
+  {
+    "name": "Hyderabadi Biryani",
+    "mealType": "Dinner",
+    "cuisine": "Telangana",
+    "pairWith": ["Mirchi Ka Salan", "Raita"],
+    "ingredients": [
+      {"item": "Basmati Rice", "quantity": 2, "unit": "cups"},
+      {"item": "Chicken", "quantity": 500, "unit": "grams"},
+      {"item": "Onion", "quantity": 2, "unit": "large"},
+      {"item": "Yogurt", "quantity": 0.5, "unit": "cup"},
+      {"item": "Biryani Masala", "quantity": 2, "unit": "tbsp"},
+      {"item": "Saffron", "quantity": 1, "unit": "pinch"},
+      {"item": "Ghee", "quantity": 4, "unit": "tbsp"}
+    ],
+    "macros": {
+      "calories": 450,
+      "protein": 22,
+      "fat": 18,
+      "carbs": 55,
+      "fiber": 4
+    },
+    "instructions": "Marinate chicken, cook rice, layer with saffron, steam together with spices and herbs.",
+    "servings": 6,
+    "cookedWeightGrams": 1200,
+    "tags": ["non-vegetarian", "aromatic", "telangana", "biryani"]
+  },
+  {
+    "name": "Mirchi Ka Salan",
+    "mealType": "Side",
+    "cuisine": "Telangana",
+    "pairWith": ["Hyderabadi Biryani", "Steamed Rice"],
+    "ingredients": [
+      {"item": "Green Chillies", "quantity": 8, "unit": "large"},
+      {"item": "Peanuts", "quantity": 0.25, "unit": "cup"},
+      {"item": "Sesame Seeds", "quantity": 2, "unit": "tbsp"},
+      {"item": "Tamarind", "quantity": 1, "unit": "tbsp"},
+      {"item": "Coconut", "quantity": 0.25, "unit": "cup"},
+      {"item": "Oil", "quantity": 3, "unit": "tbsp"}
+    ],
+    "macros": {
+      "calories": 180,
+      "protein": 5,
+      "fat": 12,
+      "carbs": 15,
+      "fiber": 4
+    },
+    "instructions": "Fry chillies, grind peanuts, sesame, coconut. Cook with tamarind and spices until thick.",
+    "servings": 4,
+    "cookedWeightGrams": 300,
+    "tags": ["vegetarian", "spicy", "telangana", "curry"]
+  },
+  {
+    "name": "Double Ka Meetha",
+    "mealType": "Dessert",
+    "cuisine": "Telangana",
+    "pairWith": ["Tea", "Coffee"],
+    "ingredients": [
+      {"item": "Bread", "quantity": 6, "unit": "slices"},
+      {"item": "Milk", "quantity": 2, "unit": "cups"},
+      {"item": "Sugar", "quantity": 0.5, "unit": "cup"},
+      {"item": "Ghee", "quantity": 3, "unit": "tbsp"},
+      {"item": "Cardamom", "quantity": 4, "unit": "pods"},
+      {"item": "Saffron", "quantity": 1, "unit": "pinch"}
+    ],
+    "macros": {
+      "calories": 320,
+      "protein": 6,
+      "fat": 12,
+      "carbs": 48,
+      "fiber": 2
+    },
+    "instructions": "Fry bread in ghee, prepare sweetened milk with cardamom and saffron. Layer and soak bread.",
+    "servings": 4,
+    "cookedWeightGrams": 500,
+    "tags": ["vegetarian", "sweet", "telangana", "dessert"]
+  },
+  {
+    "name": "Bagara Baingan",
+    "mealType": "Side",
+    "cuisine": "Telangana",
+    "pairWith": ["Steamed Rice", "Dal"],
+    "ingredients": [
+      {"item": "Brinjal", "quantity": 6, "unit": "small"},
+      {"item": "Peanuts", "quantity": 0.25, "unit": "cup"},
+      {"item": "Sesame Seeds", "quantity": 2, "unit": "tbsp"},
+      {"item": "Coconut", "quantity": 0.25, "unit": "cup"},
+      {"item": "Tamarind", "quantity": 1, "unit": "tbsp"},
+      {"item": "Oil", "quantity": 4, "unit": "tbsp"}
+    ],
+    "macros": {
+      "calories": 220,
+      "protein": 6,
+      "fat": 14,
+      "carbs": 20,
+      "fiber": 6
+    },
+    "instructions": "Fry brinjals, prepare masala with peanuts, sesame, coconut. Cook in tamarind gravy.",
+    "servings": 4,
+    "cookedWeightGrams": 400,
+    "tags": ["vegetarian", "spicy", "telangana", "curry"]
+  },
+  {
+    "name": "Qubani Ka Meetha",
+    "mealType": "Dessert",
+    "cuisine": "Telangana",
+    "pairWith": ["Tea", "Coffee"],
+    "ingredients": [
+      {"item": "Dried Apricots", "quantity": 200, "unit": "grams"},
+      {"item": "Sugar", "quantity": 0.5, "unit": "cup"},
+      {"item": "Almonds", "quantity": 0.25, "unit": "cup"},
+      {"item": "Cardamom", "quantity": 4, "unit": "pods"},
+      {"item": "Ghee", "quantity": 2, "unit": "tbsp"}
+    ],
+    "macros": {
+      "calories": 280,
+      "protein": 4,
+      "fat": 8,
+      "carbs": 52,
+      "fiber": 6
+    },
+    "instructions": "Soak apricots, cook with sugar and cardamom until soft. Garnish with almonds.",
+    "servings": 4,
+    "cookedWeightGrams": 400,
+    "tags": ["vegetarian", "sweet", "telangana", "dessert"]
+  },
+  {
+    "name": "Butter Chicken",
+    "mealType": "Dinner",
+    "cuisine": "North Indian",
+    "pairWith": ["Naan", "Basmati Rice"],
+    "ingredients": [
+      {"item": "Chicken", "quantity": 500, "unit": "grams"},
+      {"item": "Yogurt", "quantity": 0.5, "unit": "cup"},
+      {"item": "Tomato", "quantity": 3, "unit": "medium"},
+      {"item": "Cream", "quantity": 0.25, "unit": "cup"},
+      {"item": "Butter", "quantity": 3, "unit": "tbsp"},
+      {"item": "Garam Masala", "quantity": 1, "unit": "tsp"}
+    ],
+    "macros": {
+      "calories": 380,
+      "protein": 26,
+      "fat": 24,
+      "carbs": 12,
+      "fiber": 3
+    },
+    "instructions": "Marinate chicken in yogurt and spices, grill, then simmer in tomato-cream gravy with butter.",
+    "servings": 4,
+    "cookedWeightGrams": 800,
+    "tags": ["non-vegetarian", "creamy", "north-indian", "curry"]
+  },
+  {
+    "name": "Palak Paneer",
+    "mealType": "Side",
+    "cuisine": "North Indian",
+    "pairWith": ["Naan", "Roti"],
+    "ingredients": [
+      {"item": "Spinach", "quantity": 300, "unit": "grams"},
+      {"item": "Paneer", "quantity": 200, "unit": "grams"},
+      {"item": "Onion", "quantity": 1, "unit": "medium"},
+      {"item": "Ginger", "quantity": 1, "unit": "tbsp"},
+      {"item": "Garlic", "quantity": 4, "unit": "cloves"},
+      {"item": "Cream", "quantity": 0.25, "unit": "cup"}
+    ],
+    "macros": {
+      "calories": 220,
+      "protein": 12,
+      "fat": 16,
+      "carbs": 8,
+      "fiber": 4
+    },
+    "instructions": "Blanch spinach, blend with spices, add paneer cubes, simmer with cream until thick.",
+    "servings": 4,
+    "cookedWeightGrams": 500,
+    "tags": ["vegetarian", "healthy", "north-indian", "curry"]
+  },
+  {
+    "name": "Dal Makhani",
+    "mealType": "Side",
+    "cuisine": "North Indian",
+    "pairWith": ["Naan", "Roti"],
+    "ingredients": [
+      {"item": "Black Lentils", "quantity": 0.5, "unit": "cup"},
+      {"item": "Kidney Beans", "quantity": 0.25, "unit": "cup"},
+      {"item": "Tomato", "quantity": 2, "unit": "medium"},
+      {"item": "Cream", "quantity": 0.25, "unit": "cup"},
+      {"item": "Butter", "quantity": 2, "unit": "tbsp"},
+      {"item": "Ginger", "quantity": 1, "unit": "tbsp"}
+    ],
+    "macros": {
+      "calories": 280,
+      "protein": 14,
+      "fat": 16,
+      "carbs": 22,
+      "fiber": 8
+    },
+    "instructions": "Soak lentils overnight, pressure cook, simmer with tomatoes and cream until creamy.",
+    "servings": 4,
+    "cookedWeightGrams": 600,
+    "tags": ["vegetarian", "protein-rich", "north-indian", "dal"]
+  },
+  {
+    "name": "Aloo Paratha",
+    "mealType": "Breakfast",
+    "cuisine": "North Indian",
+    "pairWith": ["Curd", "Pickle"],
+    "ingredients": [
+      {"item": "Wheat Flour", "quantity": 2, "unit": "cups"},
+      {"item": "Potato", "quantity": 3, "unit": "medium"},
+      {"item": "Onion", "quantity": 1, "unit": "medium"},
+      {"item": "Ginger", "quantity": 1, "unit": "tsp"},
+      {"item": "Ghee", "quantity": 3, "unit": "tbsp"}
+    ],
+    "macros": {
+      "calories": 320,
+      "protein": 8,
+      "fat": 12,
+      "carbs": 48,
+      "fiber": 6
+    },
+    "instructions": "Mash potatoes with spices, stuff in wheat dough, roll and cook on hot tawa with ghee.",
+    "servings": 4,
+    "cookedWeightGrams": 500,
+    "tags": ["vegetarian", "stuffed", "north-indian", "bread"]
+  },
+  {
+    "name": "Rajma Chawal",
+    "mealType": "Lunch",
+    "cuisine": "North Indian",
+    "pairWith": ["Raita", "Salad"],
+    "ingredients": [
+      {"item": "Kidney Beans", "quantity": 1, "unit": "cup"},
+      {"item": "Rice", "quantity": 1, "unit": "cup"},
+      {"item": "Onion", "quantity": 2, "unit": "medium"},
+      {"item": "Tomato", "quantity": 2, "unit": "medium"},
+      {"item": "Ginger", "quantity": 1, "unit": "tbsp"},
+      {"item": "Oil", "quantity": 3, "unit": "tbsp"}
+    ],
+    "macros": {
+      "calories": 420,
+      "protein": 16,
+      "fat": 12,
+      "carbs": 68,
+      "fiber": 12
+    },
+    "instructions": "Soak rajma overnight, pressure cook, prepare gravy with onions and tomatoes. Serve with rice.",
+    "servings": 4,
+    "cookedWeightGrams": 800,
+    "tags": ["vegetarian", "protein-rich", "north-indian", "combo"]
+  },
+  {
+    "name": "Chole Bhature",
+    "mealType": "Breakfast",
+    "cuisine": "North Indian",
+    "pairWith": ["Onion Salad", "Pickle"],
+    "ingredients": [
+      {"item": "Chickpeas", "quantity": 1, "unit": "cup"},
+      {"item": "All Purpose Flour", "quantity": 2, "unit": "cups"},
+      {"item": "Yogurt", "quantity": 0.25, "unit": "cup"},
+      {"item": "Onion", "quantity": 2, "unit": "medium"},
+      {"item": "Tomato", "quantity": 2, "unit": "medium"},
+      {"item": "Oil", "quantity": 4, "unit": "tbsp"}
+    ],
+    "macros": {
+      "calories": 480,
+      "protein": 14,
+      "fat": 18,
+      "carbs": 72,
+      "fiber": 10
+    },
+    "instructions": "Cook chickpeas with spices, prepare bhature dough with yogurt, deep fry until puffed.",
+    "servings": 4,
+    "cookedWeightGrams": 700,
+    "tags": ["vegetarian", "protein-rich", "north-indian", "breakfast"]
+  },
+  {
+    "name": "Kadhi Pakora",
+    "mealType": "Side",
+    "cuisine": "North Indian",
+    "pairWith": ["Steamed Rice", "Roti"],
+    "ingredients": [
+      {"item": "Yogurt", "quantity": 1, "unit": "cup"},
+      {"item": "Besan", "quantity": 0.5, "unit": "cup"},
+      {"item": "Onion", "quantity": 1, "unit": "medium"},
+      {"item": "Spinach", "quantity": 0.5, "unit": "cup"},
+      {"item": "Ginger", "quantity": 1, "unit": "tbsp"},
+      {"item": "Oil", "quantity": 3, "unit": "tbsp"}
+    ],
+    "macros": {
+      "calories": 240,
+      "protein": 8,
+      "fat": 14,
+      "carbs": 20,
+      "fiber": 4
+    },
+    "instructions": "Make pakoras with besan and vegetables, prepare kadhi with yogurt and besan, simmer together.",
+    "servings": 4,
+    "cookedWeightGrams": 500,
+    "tags": ["vegetarian", "tangy", "north-indian", "curry"]
+  },
+  {
+    "name": "Malai Kofta",
+    "mealType": "Side",
+    "cuisine": "North Indian",
+    "pairWith": ["Naan", "Roti"],
+    "ingredients": [
+      {"item": "Paneer", "quantity": 200, "unit": "grams"},
+      {"item": "Potato", "quantity": 2, "unit": "medium"},
+      {"item": "Cream", "quantity": 0.5, "unit": "cup"},
+      {"item": "Cashews", "quantity": 0.25, "unit": "cup"},
+      {"item": "Raisins", "quantity": 2, "unit": "tbsp"},
+      {"item": "Oil", "quantity": 4, "unit": "tbsp"}
+    ],
+    "macros": {
+      "calories": 360,
+      "protein": 10,
+      "fat": 24,
+      "carbs": 28,
+      "fiber": 4
+    },
+    "instructions": "Make koftas with paneer and potato, deep fry, serve in creamy tomato gravy.",
+    "servings": 4,
+    "cookedWeightGrams": 600,
+    "tags": ["vegetarian", "rich", "north-indian", "curry"]
+  },
+  {
+    "name": "Pulao",
+    "mealType": "Lunch",
+    "cuisine": "North Indian",
+    "pairWith": ["Raita", "Papad"],
+    "ingredients": [
+      {"item": "Basmati Rice", "quantity": 2, "unit": "cups"},
+      {"item": "Mixed Vegetables", "quantity": 1, "unit": "cup"},
+      {"item": "Ghee", "quantity": 3, "unit": "tbsp"},
+      {"item": "Whole Spices", "quantity": 1, "unit": "tbsp"},
+      {"item": "Onion", "quantity": 1, "unit": "medium"},
+      {"item": "Ginger", "quantity": 1, "unit": "tbsp"}
+    ],
+    "macros": {
+      "calories": 320,
+      "protein": 6,
+      "fat": 12,
+      "carbs": 52,
+      "fiber": 4
+    },
+    "instructions": "Sauté whole spices, add vegetables and rice, cook with measured water until fluffy.",
+    "servings": 4,
+    "cookedWeightGrams": 600,
+    "tags": ["vegetarian", "aromatic", "north-indian", "rice"]
+  },
+  {
+    "name": "Gulab Jamun",
+    "mealType": "Dessert",
+    "cuisine": "North Indian",
+    "pairWith": ["Tea", "Coffee"],
+    "ingredients": [
+      {"item": "Khoya", "quantity": 200, "unit": "grams"},
+      {"item": "All Purpose Flour", "quantity": 0.25, "unit": "cup"},
+      {"item": "Sugar", "quantity": 1, "unit": "cup"},
+      {"item": "Cardamom", "quantity": 4, "unit": "pods"},
+      {"item": "Ghee", "quantity": 4, "unit": "tbsp"}
+    ],
+    "macros": {
+      "calories": 380,
+      "protein": 6,
+      "fat": 16,
+      "carbs": 56,
+      "fiber": 2
+    },
+    "instructions": "Mix khoya with flour, make balls, deep fry until golden, soak in sugar syrup.",
+    "servings": 6,
+    "cookedWeightGrams": 400,
+    "tags": ["vegetarian", "sweet", "north-indian", "dessert"]
+  }
+] 

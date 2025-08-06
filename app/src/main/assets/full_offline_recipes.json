@@ -1,0 +1,356 @@
+after [
+    {
+        "name": "Idli",
+        "mealType": "Breakfast",
+        "cuisine": "South Indian",
+        "pairWith": [
+            "Coconut Chutney",
+            "Sambar"
+        ],
+        "ingredients": [
+            {
+                "item": "Rice",
+                "quantity": 1,
+                "unit": "cup"
+            },
+            {
+                "item": "Urad Dal",
+                "quantity": 0.25,
+                "unit": "cup"
+            }
+        ],
+        "macros": {
+            "calories": 150,
+            "protein": 4,
+            "fat": 1,
+            "carbs": 30,
+            "fiber": 2
+        },
+        "instructions": "Soak rice and dal, grind, ferment, and steam in idli molds.",
+        "servings": 2,
+        "cookedWeightGrams": 400,
+        "tags": [
+            "vegetarian",
+            "steamed",
+            "tiffin"
+        ]
+    },
+    {
+        "name": "Coconut Chutney",
+        "mealType": "Side",
+        "cuisine": "South Indian",
+        "pairWith": [
+            "Idli",
+            "Dosa",
+            "Vada"
+        ],
+        "ingredients": [
+            {
+                "item": "Grated Coconut",
+                "quantity": 0.5,
+                "unit": "cup"
+            },
+            {
+                "item": "Green Chilli",
+                "quantity": 1,
+                "unit": "piece"
+            },
+            {
+                "item": "Ginger",
+                "quantity": 1,
+                "unit": "tsp"
+            }
+        ],
+        "macros": {
+            "calories": 100,
+            "protein": 1,
+            "fat": 9,
+            "carbs": 4,
+            "fiber": 3
+        },
+        "instructions": "Grind all ingredients. Add tempered mustard seeds.",
+        "servings": 2,
+        "cookedWeightGrams": 100,
+        "tags": [
+            "vegetarian",
+            "side"
+        ]
+    },
+    {
+        "name": "Sambar",
+        "mealType": "Side",
+        "cuisine": "South Indian",
+        "pairWith": [
+            "Idli",
+            "Dosa",
+            "Rice"
+        ],
+        "ingredients": [
+            {
+                "item": "Toor Dal",
+                "quantity": 0.5,
+                "unit": "cup"
+            },
+            {
+                "item": "Tamarind",
+                "quantity": 1,
+                "unit": "tsp"
+            },
+            {
+                "item": "Mixed Veg",
+                "quantity": 1,
+                "unit": "cup"
+            }
+        ],
+        "macros": {
+            "calories": 180,
+            "protein": 7,
+            "fat": 3,
+            "carbs": 25,
+            "fiber": 5
+        },
+        "instructions": "Boil dal, add veggies and spices, simmer with tamarind.",
+        "servings": 2,
+        "cookedWeightGrams": 350,
+        "tags": [
+            "vegetarian",
+            "protein-rich",
+            "side"
+        ]
+    },
+    {
+        "name": "Chapati",
+        "mealType": "Dinner",
+        "cuisine": "North Indian",
+        "pairWith": [
+            "Dal Tadka",
+            "Aloo Gobi"
+        ],
+        "ingredients": [
+            {
+                "item": "Wheat Flour",
+                "quantity": 1,
+                "unit": "cup"
+            },
+            {
+                "item": "Water",
+                "quantity": 0.5,
+                "unit": "cup"
+            }
+        ],
+        "macros": {
+            "calories": 200,
+            "protein": 6,
+            "fat": 2,
+            "carbs": 35,
+            "fiber": 4
+        },
+        "instructions": "Knead flour and water, roll flat and cook on hot tawa.",
+        "servings": 2,
+        "cookedWeightGrams": 300,
+        "tags": [
+            "vegetarian",
+            "low-fat"
+        ]
+    },
+    {
+        "name": "Dal Tadka",
+        "mealType": "Side",
+        "cuisine": "North Indian",
+        "pairWith": [
+            "Chapati",
+            "Rice"
+        ],
+        "ingredients": [
+            {
+                "item": "Toor Dal",
+                "quantity": 0.5,
+                "unit": "cup"
+            },
+            {
+                "item": "Tomato",
+                "quantity": 1,
+                "unit": "medium"
+            },
+            {
+                "item": "Ghee",
+                "quantity": 1,
+                "unit": "tsp"
+            }
+        ],
+        "macros": {
+            "calories": 180,
+            "protein": 9,
+            "fat": 4,
+            "carbs": 22,
+            "fiber": 5
+        },
+        "instructions": "Boil dal, add tomato tadka with ghee and spices.",
+        "servings": 2,
+        "cookedWeightGrams": 250,
+        "tags": [
+            "vegetarian",
+            "protein-rich"
+        ]
+    },
+    {
+        "name": "Aloo Gobi",
+        "mealType": "Side",
+        "cuisine": "North Indian",
+        "pairWith": [
+            "Chapati",
+            "Rice"
+        ],
+        "ingredients": [
+            {
+                "item": "Potato",
+                "quantity": 1,
+                "unit": "medium"
+            },
+            {
+                "item": "Cauliflower",
+                "quantity": 1,
+                "unit": "cup"
+            },
+            {
+                "item": "Spices",
+                "quantity": 1,
+                "unit": "tbsp"
+            }
+        ],
+        "macros": {
+            "calories": 150,
+            "protein": 4,
+            "fat": 6,
+            "carbs": 20,
+            "fiber": 6
+        },
+        "instructions": "Saut\u00e9 potato and cauliflower with spices until tender.",
+        "servings": 2,
+        "cookedWeightGrams": 300,
+        "tags": [
+            "vegetarian",
+            "fiber-rich"
+        ]
+    },
+    {
+        "name": "Grilled Chicken Breast",
+        "mealType": "Lunch",
+        "cuisine": "Continental",
+        "pairWith": [
+            "Steamed Vegetables",
+            "Mashed Potato"
+        ],
+        "ingredients": [
+            {
+                "item": "Chicken Breast",
+                "quantity": 200,
+                "unit": "grams"
+            },
+            {
+                "item": "Olive Oil",
+                "quantity": 1,
+                "unit": "tbsp"
+            },
+            {
+                "item": "Spices",
+                "quantity": 1,
+                "unit": "tsp"
+            }
+        ],
+        "macros": {
+            "calories": 300,
+            "protein": 30,
+            "fat": 12,
+            "carbs": 0,
+            "fiber": 0
+        },
+        "instructions": "Marinate and grill chicken until cooked through.",
+        "servings": 1,
+        "cookedWeightGrams": 200,
+        "tags": [
+            "non-veg",
+            "high-protein"
+        ]
+    },
+    {
+        "name": "Steamed Vegetables",
+        "mealType": "Side",
+        "cuisine": "Continental",
+        "pairWith": [
+            "Grilled Chicken Breast",
+            "Pasta"
+        ],
+        "ingredients": [
+            {
+                "item": "Carrot",
+                "quantity": 1,
+                "unit": "medium"
+            },
+            {
+                "item": "Broccoli",
+                "quantity": 0.5,
+                "unit": "cup"
+            },
+            {
+                "item": "Beans",
+                "quantity": 0.5,
+                "unit": "cup"
+            }
+        ],
+        "macros": {
+            "calories": 90,
+            "protein": 3,
+            "fat": 1,
+            "carbs": 15,
+            "fiber": 5
+        },
+        "instructions": "Steam vegetables lightly. Add salt and olive oil if desired.",
+        "servings": 2,
+        "cookedWeightGrams": 200,
+        "tags": [
+            "vegetarian",
+            "fiber-rich",
+            "side"
+        ]
+    },
+    {
+        "name": "Mashed Potato",
+        "mealType": "Side",
+        "cuisine": "Continental",
+        "pairWith": [
+            "Grilled Chicken Breast"
+        ],
+        "ingredients": [
+            {
+                "item": "Potato",
+                "quantity": 2,
+                "unit": "medium"
+            },
+            {
+                "item": "Butter",
+                "quantity": 1,
+                "unit": "tbsp"
+            },
+            {
+                "item": "Milk",
+                "quantity": 0.25,
+                "unit": "cup"
+            }
+        ],
+        "macros": {
+            "calories": 200,
+            "protein": 3,
+            "fat": 6,
+            "carbs": 30,
+            "fiber": 4
+        },
+        "instructions": "Boil potatoes, mash with milk and butter, season to taste.",
+        "servings": 2,
+        "cookedWeightGrams": 300,
+        "tags": [
+            "vegetarian",
+            "comfort"
+        ]
+    }
+]

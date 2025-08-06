@@ -1,0 +1,121 @@
+[
+    {
+        "name": "Idli",
+        "mealType": "Breakfast",
+        "cuisine": "South Indian",
+        "pairWith": [
+            "Coconut Chutney",
+            "Sambar"
+        ],
+        "ingredients": [
+            {
+                "item": "Rice",
+                "quantity": 1,
+                "unit": "cup"
+            },
+            {
+                "item": "Urad Dal",
+                "quantity": 0.25,
+                "unit": "cup"
+            }
+        ],
+        "macros": {
+            "calories": 150,
+            "protein": 4,
+            "fat": 1,
+            "carbs": 30,
+            "fiber": 2
+        },
+        "instructions": "Soak rice and dal, grind, ferment, and steam in idli molds.",
+        "servings": 2,
+        "cookedWeightGrams": 400,
+        "tags": [
+            "vegetarian",
+            "steamed",
+            "tiffin"
+        ]
+    },
+    {
+        "name": "Coconut Chutney",
+        "mealType": "Side",
+        "cuisine": "South Indian",
+        "pairWith": [
+            "Idli",
+            "Dosa",
+            "Vada"
+        ],
+        "ingredients": [
+            {
+                "item": "Grated Coconut",
+                "quantity": 0.5,
+                "unit": "cup"
+            },
+            {
+                "item": "Green Chilli",
+                "quantity": 1,
+                "unit": "piece"
+            },
+            {
+                "item": "Ginger",
+                "quantity": 1,
+                "unit": "tsp"
+            }
+        ],
+        "macros": {
+            "calories": 100,
+            "protein": 1,
+            "fat": 9,
+            "carbs": 4,
+            "fiber": 3
+        },
+        "instructions": "Grind all ingredients. Add tempered mustard seeds.",
+        "servings": 2,
+        "cookedWeightGrams": 100,
+        "tags": [
+            "vegetarian",
+            "side"
+        ]
+    },
+    {
+        "name": "Sambar",
+        "mealType": "Side",
+        "cuisine": "South Indian",
+        "pairWith": [
+            "Idli",
+            "Dosa",
+            "Rice"
+        ],
+        "ingredients": [
+            {
+                "item": "Toor Dal",
+                "quantity": 0.5,
+                "unit": "cup"
+            },
+            {
+                "item": "Tamarind",
+                "quantity": 1,
+                "unit": "tsp"
+            },
+            {
+                "item": "Mixed Veg",
+                "quantity": 1,
+                "unit": "cup"
+            }
+        ],
+        "macros": {
+            "calories": 180,
+            "protein": 7,
+            "fat": 3,
+            "carbs": 25,
+            "fiber": 5
+        },
+        "instructions": "Boil dal, add veggies and spices, simmer with tamarind.",
+        "servings": 2,
+        "cookedWeightGrams": 350,
+        "tags": [
+            "vegetarian",
+            "protein-rich",
+            "side"
+        ]
+    }
+]

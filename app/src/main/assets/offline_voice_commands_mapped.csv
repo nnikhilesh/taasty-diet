@@ -1,0 +1,115 @@
+OfflineVoiceCommand,ActionType
+shopping list please,ShoppingList
+suggest egg curry recipe,MealSuggest
+how much protein left,MacroQuery
+tell me should i eat now,FamilyPortion
+show my nutrition report,MealSuggest
+tell me is in my inventory,CheckInventory
+add 2 guests for dinner,InventoryAdd
+i want something healthy,Unknown
+my calories this day,MacroQuery
+guest count is 3,GuestAdd
+show recipes with paneer,MealSuggest
+can you tell is my next meal,MealSuggest
+what is my next food,Unknown
+tell me should i buy now,ShoppingList
+fiber remaining,MacroQuery
+add 5 guests,InventoryAdd
+portion for nikki,FamilyPortion
+how to make idli,RecipeSearch
+can you tell to cook next,Unknown
+next dish please,Unknown
+next meal please,MealSuggest
+how much for dad,FamilyPortion
+check today's diet type,VegDayCheck
+tell me is my next food,Unknown
+which's missing from inventory,CheckInventory
+add half kg tomato,InventoryAdd
+is now veg day,VegDayCheck
+tell me should i buy this day,ShoppingList
+give me a low carb lunch,MealSuggest
+check now's diet type,VegDayCheck
+which is my next food,Unknown
+is today veg day,VegDayCheck
+which to cook next,Unknown
+put 2 liters milk,InventoryAdd
+what should i buy this day,MealSuggest
+do i have rice,CheckInventory
+what can i cook with potato,RecipeSearch
+add 500 grams paneer,InventoryAdd
+which should i eat now,FamilyPortion
+divide food for family,FamilyPortion
+what is my next dish,Unknown
+do we eat meat now,FamilyPortion
+suggest a dish with fiber,MealSuggest
+can you tell should i eat now,FamilyPortion
+tell me is my next meal,MealSuggest
+suggest my nutrition report,MealSuggest
+tell me can i cook with potato,RecipeSearch
+what should i buy now,MealSuggest
+what should i eat now,MealSuggest
+how much tomato left,Unknown
+list items to shop,ShoppingList
+carbs eaten now,MacroQuery
+what is in my inventory,CheckInventory
+suggest a meal with fiber,MealSuggest
+can you tell should i buy now,ShoppingList
+is this day veg day,VegDayCheck
+do we eat meat today,FamilyPortion
+show me vegetarian lunch,MealSuggest
+suggest a food with fiber,MealSuggest
+can you tell should i buy today,ShoppingList
+give recipes with paneer,MealSuggest
+tell me to cook next,Unknown
+next food please,Unknown
+can you tell's missing from inventory,CheckInventory
+can you tell is my next dish,Unknown
+can you tell is my next food,Unknown
+which is my next meal,MealSuggest
+can you tell is in my inventory,CheckInventory
+tell me should i buy today,ShoppingList
+suggest me vegetarian lunch,MealSuggest
+my calories now,MacroQuery
+tell me's missing from inventory,CheckInventory
+list me vegetarian lunch,VegDayCheck
+tell me the next food,Unknown
+list my nutrition report,MacroQuery
+kanna should eat 400 grams,FamilyPortion
+make food for 4 guests,GuestAdd
+list egg curry recipe,RecipeSearch
+veg or nonveg today,VegDayCheck
+which is in my inventory,CheckInventory
+what to cook next,Unknown
+carbs eaten today,MacroQuery
+suggest food portion by name,MealSuggest
+give egg curry recipe,MealSuggest
+what should i buy today,MealSuggest
+we have 1 visitor for lunch,GuestAdd
+veg or nonveg this day,VegDayCheck
+suggest high protein dinner,MealSuggest
+what's missing from inventory,CheckInventory
+any groceries to buy,ShoppingList
+inventory status please,CheckInventory
+which can i cook with potato,RecipeSearch
+now vegetarian or not,VegDayCheck
+check stock for milk,CheckInventory
+suggest recipes with paneer,MealSuggest
+can you tell can i cook with potato,RecipeSearch
+show egg curry recipe,MealSuggest
+do we eat meat this day,FamilyPortion
+give me vegetarian lunch,MealSuggest
+which should i buy this day,ShoppingList
+which should i buy today,ShoppingList
+today vegetarian or not,VegDayCheck
+list recipes with paneer,RecipeSearch
+give my nutrition report,MealSuggest
+this day vegetarian or not,VegDayCheck
+carbs eaten this day,MacroQuery
+my calories today,MacroQuery
+search for sambar recipe,RecipeSearch
+veg or nonveg now,VegDayCheck
+what is my next meal,MealSuggest
+can you tell should i buy this day,ShoppingList
+add 1 kg rice to inventory,InventoryAdd
+store 10 eggs,InventoryAdd
+check this day's diet type,VegDayCheck
