@@ -45,6 +45,15 @@ class LlamaManager(private val context: Context) {
     private var modelPath: String? = null
     private val externalAssetManager = ExternalAssetManager(context)
     
+    // Enhanced logging and user feedback
+    data class ModelStatus(
+        val isAvailable: Boolean,
+        val foundPath: String?,
+        val missingPaths: List<String>,
+        val errorMessage: String?,
+        val userMessage: String
+    )
+    
     /**
      * Initialize the LLM model with enhanced error handling and format validation
      * @return true if successful, false otherwise
@@ -56,12 +65,18 @@ class LlamaManager(private val context: Context) {
                 return@withContext true
             }
             
-            // Try to find model in multiple locations
-            val path = findModelPath()
-            if (path == null) {
-                Log.e(TAG, "Failed to find model file in any location")
+            // Enhanced model path finding with detailed logging
+            val modelStatus = findModelPathWithDetails()
+            
+            if (!modelStatus.isAvailable) {
+                Log.e(TAG, "Model not available: ${modelStatus.errorMessage}")
+                Log.e(TAG, "Searched paths: ${modelStatus.missingPaths.joinToString(", ")}")
+                Log.e(TAG, "User message: ${modelStatus.userMessage}")
                 return@withContext false
             }
+            
+            val path = modelStatus.foundPath!!
+            Log.i(TAG, "✅ Model found at: $path")
             
             // Validate model file format
             if (!validateModelFormat(path)) {
@@ -70,7 +85,7 @@ class LlamaManager(private val context: Context) {
             }
             
             modelPath = path
-            Log.i(TAG, "Initializing model from external storage: $path")
+            Log.i(TAG, "Initializing model from: $path")
             Log.i(TAG, "llama.cpp version: $LLAMA_CPP_VERSION")
             
             // Initialize the model using native code
@@ -78,10 +93,10 @@ class LlamaManager(private val context: Context) {
                 val success = initModel(path)
                 if (success) {
                     isInitialized = true
-                    Log.i(TAG, "Model initialized successfully")
+                    Log.i(TAG, "✅ Model initialized successfully")
                     Log.i(TAG, "Model info: ${getModelInfoString()}")
                 } else {
-                    Log.e(TAG, "Failed to initialize model")
+                    Log.e(TAG, "❌ Failed to initialize model")
                 }
                 success
             } catch (e: UnsatisfiedLinkError) {
@@ -97,31 +112,93 @@ class LlamaManager(private val context: Context) {
     }
     
     /**
-     * Find the model file in multiple possible locations
-     * @return Path to the model file, or null if not found
+     * Find the model file with detailed logging and user feedback
+     * @return ModelStatus with detailed information
      */
-    private fun findModelPath(): String? {
+    private fun findModelPathWithDetails(): ModelStatus {
         val possiblePaths = listOf(
-            // Model downloads directory
-            "model_downloads/tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf",
-            // App assets
-            context.filesDir.absolutePath + "/models/tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf",
+            // App internal storage
+            "${context.filesDir.absolutePath}/models/$MODEL_FILENAME",
             // External storage
-            "/storage/emulated/0/dietlarge/tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf",
+            "/storage/emulated/0/dietlarge/$MODEL_FILENAME",
+            // Model downloads directory
+            "model_downloads/$MODEL_FILENAME",
             // External asset manager path
             externalAssetManager.getAssetPath(ExternalAssetManager.AssetType.LLM_MODEL)
         ).filterNotNull()
         
+        Log.i(TAG, "🔍 Searching for model file: $MODEL_FILENAME")
+        Log.i(TAG, "📁 Checking ${possiblePaths.size} possible locations:")
+        
+        val missingPaths = mutableListOf<String>()
+        var foundPath: String? = null
+        
         for (path in possiblePaths) {
             val file = File(path)
+            Log.i(TAG, "  📂 Checking: $path")
+            
             if (file.exists()) {
-                Log.i(TAG, "Found model at: $path")
-                return path
+                val fileSize = file.length()
+                Log.i(TAG, "  ✅ FOUND: $path (${fileSize / (1024 * 1024)} MB)")
+                foundPath = path
+                break
+            } else {
+                Log.w(TAG, "  ❌ NOT FOUND: $path")
+                missingPaths.add(path)
             }
         }
         
-        Log.e(TAG, "Model not found in any location")
-        return null
+        return if (foundPath != null) {
+            ModelStatus(
+                isAvailable = true,
+                foundPath = foundPath,
+                missingPaths = missingPaths,
+                errorMessage = null,
+                userMessage = "🤖 Local AI model loaded successfully!"
+            )
+        } else {
+            val primaryPath = "${context.filesDir.absolutePath}/models/$MODEL_FILENAME"
+            val externalPath = "/storage/emulated/0/dietlarge/$MODEL_FILENAME"
+            
+            ModelStatus(
+                isAvailable = false,
+                foundPath = null,
+                missingPaths = missingPaths,
+                errorMessage = "Model file not found in any location",
+                userMessage = "⚠️ Local AI model not available.\n\n" +
+                    "📁 Place your model file at:\n" +
+                    "• $primaryPath\n" +
+                    "• $externalPath\n\n" +
+                    "🔄 Restart the app after placing the file."
+            )
+        }
+    }
+    
+    /**
+     * Find the model file in multiple possible locations (legacy method)
+     * @return Path to the model file, or null if not found
+     */
+    private fun findModelPath(): String? {
+        return findModelPathWithDetails().foundPath
+    }
+    
+    /**
+     * Get detailed model status for UI display
+     * @return ModelStatus with user-friendly information
+     */
+    fun getModelStatus(): ModelStatus {
+        return findModelPathWithDetails()
+    }
+    
+    /**
+     * Get the exact path where the model should be placed
+     * @return List of recommended paths
+     */
+    fun getRecommendedModelPaths(): List<String> {
+        return listOf(
+            "${context.filesDir.absolutePath}/models/$MODEL_FILENAME",
+            "/storage/emulated/0/dietlarge/$MODEL_FILENAME"
+        )
     }
     
     /**
@@ -151,7 +228,7 @@ class LlamaManager(private val context: Context) {
                 // Still allow loading, but warn user
             }
             
-            Log.i(TAG, "Model format validation passed: $extension, ${fileSize / (1024 * 1024)} MB")
+            Log.i(TAG, "✅ Model format validation passed: $extension, ${fileSize / (1024 * 1024)} MB")
             true
         } catch (e: Exception) {
             Log.e(TAG, "Error validating model format: ${e.message}")
@@ -177,7 +254,8 @@ class LlamaManager(private val context: Context) {
                 Log.w(TAG, "Model not initialized, attempting to initialize...")
                 val initSuccess = initializeModel()
                 if (!initSuccess) {
-                    return@withContext "Error: LLM model not available. Please download the model first or try again later."
+                    val modelStatus = getModelStatus()
+                    return@withContext "❌ AI model not available.\n\n${modelStatus.userMessage}"
                 }
             }
             
@@ -194,15 +272,16 @@ class LlamaManager(private val context: Context) {
                 response
             } catch (e: UnsatisfiedLinkError) {
                 Log.e(TAG, "Native library not available for response generation: ${e.message}")
-                "Error: AI model not loaded. Please restart the app or check if the model file is available."
+                val modelStatus = getModelStatus()
+                "❌ AI model not loaded.\n\n${modelStatus.userMessage}"
             } catch (e: Exception) {
                 Log.e(TAG, "Exception in native response generation: ${e.message}")
-                "Error: Failed to generate AI response. Please try again."
+                "❌ Failed to generate AI response. Please try again."
             }
             
         } catch (e: Exception) {
             Log.e(TAG, "Exception during response generation: ${e.message}")
-            "Error: Failed to generate response. Please try again."
+            "❌ Failed to generate response. Please try again."
         }
     }
     
@@ -284,7 +363,7 @@ class LlamaManager(private val context: Context) {
         } catch (e: UnsatisfiedLinkError) {
             // Check if model is actually ready despite getModelInfo() failing
             if (isModelReady()) {
-                "TinyLlama Model Loaded Successfully\nllama.cpp version: $LLAMA_CPP_VERSION\nModel: tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf"
+                "TinyLlama Model Loaded Successfully\nllama.cpp version: $LLAMA_CPP_VERSION\nModel: $MODEL_FILENAME"
             } else {
                 "Fallback Mode - Native LLM not available\nllama.cpp version: $LLAMA_CPP_VERSION"
             }

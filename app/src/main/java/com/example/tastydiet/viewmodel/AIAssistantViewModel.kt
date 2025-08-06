@@ -130,16 +130,46 @@ class AIAssistantViewModel(application: Application) : AndroidViewModel(applicat
     private fun initializeLLM() {
         viewModelScope.launch {
             try {
-                val success = llamaManager.initializeModel()
-                if (success) {
-                    addMessage(ChatMessage(
-                        text = "🤖 Local AI model loaded successfully! I'm now running completely offline.",
-                        isUser = false,
-                        timestamp = getCurrentTimestamp()
-                    ))
+                val modelStatus = llamaManager.getModelStatus()
+                
+                if (modelStatus.isAvailable) {
+                    // Try to initialize the model
+                    val success = llamaManager.initializeModel()
+                    if (success) {
+                        addMessage(ChatMessage(
+                            text = modelStatus.userMessage,
+                            isUser = false,
+                            timestamp = getCurrentTimestamp()
+                        ))
+                    } else {
+                        addMessage(ChatMessage(
+                            text = "⚠️ Model found but failed to initialize. Using fallback responses.",
+                            isUser = false,
+                            timestamp = getCurrentTimestamp()
+                        ))
+                    }
                 } else {
+                    // Model not available - show detailed message with copyable paths
+                    val detailedMessage = buildString {
+                        appendLine(modelStatus.userMessage)
+                        appendLine()
+                        appendLine("📋 **Copy these paths to clipboard:**")
+                        appendLine()
+                        
+                        val recommendedPaths = llamaManager.getRecommendedModelPaths()
+                        recommendedPaths.forEachIndexed { index, path ->
+                            appendLine("${index + 1}. `$path`")
+                        }
+                        appendLine()
+                        appendLine("💡 **Instructions:**")
+                        appendLine("1. Copy one of the paths above")
+                        appendLine("2. Create the directory if it doesn't exist")
+                        appendLine("3. Place the model file there")
+                        appendLine("4. Restart the app")
+                    }
+                    
                     addMessage(ChatMessage(
-                        text = "⚠️ Local AI model not available. Using fallback responses.",
+                        text = detailedMessage,
                         isUser = false,
                         timestamp = getCurrentTimestamp()
                     ))
@@ -243,17 +273,22 @@ class AIAssistantViewModel(application: Application) : AndroidViewModel(applicat
             _isLoading.value = true
             
             try {
+                // Check model status first
+                val modelStatus = llamaManager.getModelStatus()
+                
                 // Try to use local LLM first
-                val response = if (llamaManager.isModelReady()) {
+                val response = if (modelStatus.isAvailable && llamaManager.isModelReady()) {
                     try {
                         // Send just the user input to LlamaManager
                         llamaManager.generateResponse(userInput)
                     } catch (e: Exception) {
                         // Fallback to rule-based responses
+                        Log.w("AIAssistantViewModel", "LLM failed, using fallback: ${e.message}")
                         generateFallbackResponse(userInput.lowercase())
                     }
                 } else {
                     // Use fallback responses if LLM not available
+                    Log.w("AIAssistantViewModel", "LLM not available, using fallback")
                     generateFallbackResponse(userInput.lowercase())
                 }
                 
@@ -270,7 +305,7 @@ class AIAssistantViewModel(application: Application) : AndroidViewModel(applicat
                 
             } catch (e: Exception) {
                 val errorMessage = ChatMessage(
-                    text = "Sorry, I encountered an error. Please try again.",
+                    text = "❌ Sorry, I encountered an error. Please try again.\n\nError: ${e.message}",
                     isUser = false,
                     timestamp = getCurrentTimestamp()
                 )
