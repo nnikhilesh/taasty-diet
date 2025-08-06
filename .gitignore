@@ -99,3 +99,7 @@ lint/tmp/
 # Temporary files
 *.tmp
 *.temp
+
+app/src/main/assets/models/*.gguf
+
+
