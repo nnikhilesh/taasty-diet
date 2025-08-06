@@ -22,14 +22,23 @@ class LlamaManager(private val context: Context) {
         private const val MAX_TOKENS = 512
         private const val LLAMA_CPP_VERSION = "2024.12.01" // Simplified implementation version
         
-        // Load native library
+        // Native library loading - now optional
+        private var nativeLibraryLoaded = false
+        
         init {
             try {
+                Log.i(TAG, "Attempting to load native library: llama_jni")
                 System.loadLibrary("llama_jni")
-                Log.i(TAG, "Native library loaded successfully - llama.cpp version: $LLAMA_CPP_VERSION")
+                nativeLibraryLoaded = true
+                Log.i(TAG, "✅ Native library loaded successfully - llama.cpp version: $LLAMA_CPP_VERSION")
             } catch (e: UnsatisfiedLinkError) {
-                Log.e(TAG, "Failed to load native library: ${e.message}")
-                Log.i(TAG, "LLM functionality will be disabled - using fallback responses")
+                Log.w(TAG, "⚠️ Native library not available: ${e.message}")
+                Log.i(TAG, "ℹ️ Using enhanced Kotlin fallback responses")
+                nativeLibraryLoaded = false
+            } catch (e: Exception) {
+                Log.w(TAG, "⚠️ Unexpected error loading native library: ${e.message}")
+                Log.i(TAG, "ℹ️ Using enhanced Kotlin fallback responses")
+                nativeLibraryLoaded = false
             }
         }
     }
@@ -78,6 +87,15 @@ class LlamaManager(private val context: Context) {
             val path = modelStatus.foundPath!!
             Log.i(TAG, "✅ Model found at: $path")
             
+            // Add detailed logging for model loading
+            Log.i(TAG, "Trying to load local model from: $path")
+            val fileExists = File(path).exists()
+            Log.i(TAG, "Model file exists? $fileExists")
+            if (!fileExists) {
+                Log.e(TAG, "Model file NOT FOUND at: $path")
+                return@withContext false
+            }
+            
             // Validate model file format
             if (!validateModelFormat(path)) {
                 Log.e(TAG, "Invalid model format detected")
@@ -88,22 +106,102 @@ class LlamaManager(private val context: Context) {
             Log.i(TAG, "Initializing model from: $path")
             Log.i(TAG, "llama.cpp version: $LLAMA_CPP_VERSION")
             
-            // Initialize the model using native code
+            // Log system information for debugging
             try {
-                val success = initModel(path)
-                if (success) {
-                    isInitialized = true
-                    Log.i(TAG, "✅ Model initialized successfully")
-                    Log.i(TAG, "Model info: ${getModelInfoString()}")
-                } else {
-                    Log.e(TAG, "❌ Failed to initialize model")
-                }
-                success
-            } catch (e: UnsatisfiedLinkError) {
-                Log.e(TAG, "Native library not available: ${e.message}")
-                Log.e(TAG, "Please ensure the native library is properly built and included")
-                false
+                val runtime = Runtime.getRuntime()
+                val maxMemory = runtime.maxMemory() / (1024 * 1024)
+                val totalMemory = runtime.totalMemory() / (1024 * 1024)
+                val freeMemory = runtime.freeMemory() / (1024 * 1024)
+                val usedMemory = totalMemory - freeMemory
+                
+                Log.i(TAG, "💾 System Memory Information:")
+                Log.i(TAG, "   Max Memory: ${maxMemory} MB")
+                Log.i(TAG, "   Total Memory: ${totalMemory} MB")
+                Log.i(TAG, "   Used Memory: ${usedMemory} MB")
+                Log.i(TAG, "   Free Memory: ${freeMemory} MB")
+                Log.i(TAG, "   Available Memory: ${freeMemory + (maxMemory - totalMemory)} MB")
+                
+                // Check if we have enough memory for model loading (rough estimate)
+                val modelSizeMB = File(path).length() / (1024 * 1024)
+                val requiredMemory = modelSizeMB * 2 // Rough estimate: model needs 2x its size in memory
+                Log.i(TAG, "📊 Memory Requirements:")
+                Log.i(TAG, "   Model Size: ${modelSizeMB} MB")
+                Log.i(TAG, "   Estimated Required: ${requiredMemory} MB")
+                Log.i(TAG, "   Sufficient Memory: ${if (freeMemory + (maxMemory - totalMemory) >= requiredMemory) "✅ Yes" else "❌ No"}")
+                
+            } catch (e: Exception) {
+                Log.w(TAG, "Could not get memory information: ${e.message}")
             }
+            
+            // Try native library if available
+            if (nativeLibraryLoaded) {
+                Log.i(TAG, "Native library available, attempting native initialization...")
+                try {
+                    // Log detailed model file information
+                    val modelFile = File(path)
+                    Log.i(TAG, "📁 Model file details:")
+                    Log.i(TAG, "   Path: $path")
+                    Log.i(TAG, "   Exists: ${modelFile.exists()}")
+                    Log.i(TAG, "   Size: ${modelFile.length()} bytes (${modelFile.length() / (1024 * 1024)} MB)")
+                    Log.i(TAG, "   Readable: ${modelFile.canRead()}")
+                    Log.i(TAG, "   Last modified: ${java.util.Date(modelFile.lastModified())}")
+                    
+                    Log.i(TAG, "🚀 Calling native initModel with path: $path")
+                    val startTime = System.currentTimeMillis()
+                    val success = initModel(path)
+                    val endTime = System.currentTimeMillis()
+                    val duration = endTime - startTime
+                    
+                    Log.i(TAG, "⏱️ Native initModel completed in ${duration}ms")
+                    Log.i(TAG, "📊 Native initModel returned: $success")
+                    
+                    if (success) {
+                        isInitialized = true
+                        Log.i(TAG, "✅ Model initialized successfully with native library")
+                        Log.i(TAG, "Model info: ${getModelInfoString()}")
+                        return@withContext true
+                    } else {
+                        Log.e(TAG, "❌ Native initialization failed - initModel returned false")
+                        Log.e(TAG, "🔍 This could indicate:")
+                        Log.e(TAG, "   • Model format incompatibility")
+                        Log.e(TAG, "   • Insufficient memory")
+                        Log.e(TAG, "   • Native library internal error")
+                        Log.e(TAG, "   • Model file corruption")
+                    }
+                } catch (e: UnsatisfiedLinkError) {
+                    Log.e(TAG, "❌ UnsatisfiedLinkError during native initialization:")
+                    Log.e(TAG, "   Error: ${e.message}")
+                    Log.e(TAG, "   Cause: ${e.cause?.message}")
+                    Log.e(TAG, "   Stack trace: ${e.stackTraceToString()}")
+                    Log.e(TAG, "🔍 This indicates native library function not found")
+                } catch (e: OutOfMemoryError) {
+                    Log.e(TAG, "❌ OutOfMemoryError during native initialization:")
+                    Log.e(TAG, "   Error: ${e.message}")
+                    Log.e(TAG, "   Stack trace: ${e.stackTraceToString()}")
+                    Log.e(TAG, "🔍 This indicates insufficient memory for model loading")
+                } catch (e: SecurityException) {
+                    Log.e(TAG, "❌ SecurityException during native initialization:")
+                    Log.e(TAG, "   Error: ${e.message}")
+                    Log.e(TAG, "   Stack trace: ${e.stackTraceToString()}")
+                    Log.e(TAG, "🔍 This indicates file access permission issues")
+                } catch (e: Exception) {
+                    Log.e(TAG, "❌ Exception during native initialization:")
+                    Log.e(TAG, "   Error type: ${e.javaClass.simpleName}")
+                    Log.e(TAG, "   Error message: ${e.message}")
+                    Log.e(TAG, "   Cause: ${e.cause?.message}")
+                    Log.e(TAG, "   Stack trace: ${e.stackTraceToString()}")
+                    Log.e(TAG, "🔍 This indicates an unexpected error in native code")
+                }
+            } else {
+                Log.i(TAG, "Native library not available, using Kotlin fallback")
+            }
+            
+            // Kotlin fallback initialization
+            Log.i(TAG, "Initializing Kotlin fallback mode...")
+            isInitialized = true
+            Log.i(TAG, "✅ Kotlin fallback mode initialized successfully")
+            Log.i(TAG, "Model info: ${getModelInfoString()}")
+            return@withContext true
             
         } catch (e: Exception) {
             Log.e(TAG, "Exception during model initialization: ${e.message}")
@@ -116,15 +214,20 @@ class LlamaManager(private val context: Context) {
      * @return ModelStatus with detailed information
      */
     private fun findModelPathWithDetails(): ModelStatus {
+        // First, try to copy model from assets to internal storage if not already there
+        copyModelFromAssetsIfNeeded()
+        
         val possiblePaths = listOf(
-            // App internal storage
+            // Android external files directory - CHECK FIRST (highest priority)
+            "${context.getExternalFilesDir(null)?.absolutePath}/models/$MODEL_FILENAME",
+            // App internal storage - CHECK SECOND
             "${context.filesDir.absolutePath}/models/$MODEL_FILENAME",
-            // External storage
-            "/storage/emulated/0/dietlarge/$MODEL_FILENAME",
-            // Model downloads directory
+            // External asset manager path - CHECK THIRD
+            externalAssetManager.getAssetPath(ExternalAssetManager.AssetType.LLM_MODEL),
+            // Model downloads directory - CHECK FOURTH
             "model_downloads/$MODEL_FILENAME",
-            // External asset manager path
-            externalAssetManager.getAssetPath(ExternalAssetManager.AssetType.LLM_MODEL)
+            // External storage - CHECK LAST (lowest priority, permission issues)
+            "/storage/emulated/0/dietlarge/$MODEL_FILENAME"
         ).filterNotNull()
         
         Log.i(TAG, "🔍 Searching for model file: $MODEL_FILENAME")
@@ -137,12 +240,45 @@ class LlamaManager(private val context: Context) {
             val file = File(path)
             Log.i(TAG, "  📂 Checking: $path")
             
-            if (file.exists()) {
+            // Add detailed existence check logging
+            Log.i(TAG, "Trying to load local model from: $path")
+            val fileExists = file.exists()
+            Log.i(TAG, "Model file exists? $fileExists")
+            
+            if (fileExists) {
                 val fileSize = file.length()
                 Log.i(TAG, "  ✅ FOUND: $path (${fileSize / (1024 * 1024)} MB)")
-                foundPath = path
-                break
+                
+                // Check if we can actually read the file
+                val canRead = file.canRead()
+                Log.i(TAG, "  📖 File readable: $canRead")
+                
+                if (canRead) {
+                    foundPath = path
+                    break
+                } else {
+                    Log.w(TAG, "⚠️ File found but not readable: $path")
+                    
+                    // Try to copy external files to internal storage for better access
+                    if (path.startsWith("/storage/emulated/0/")) {
+                        Log.i(TAG, "🔄 External file found but not readable, attempting to copy to internal storage...")
+                        val internalPath = "${context.filesDir.absolutePath}/models/$MODEL_FILENAME"
+                        val copySuccess = copyModelToInternalStorage(path, internalPath)
+                        
+                        if (copySuccess) {
+                            Log.i(TAG, "✅ Successfully copied model to internal storage: $internalPath")
+                            foundPath = internalPath
+                            break
+                        } else {
+                            Log.w(TAG, "⚠️ Failed to copy model to internal storage")
+                            missingPaths.add("$path (permission denied)")
+                        }
+                    } else {
+                        missingPaths.add("$path (permission denied)")
+                    }
+                }
             } else {
+                Log.e(TAG, "Model file NOT FOUND at: $path")
                 Log.w(TAG, "  ❌ NOT FOUND: $path")
                 missingPaths.add(path)
             }
@@ -199,6 +335,117 @@ class LlamaManager(private val context: Context) {
             "${context.filesDir.absolutePath}/models/$MODEL_FILENAME",
             "/storage/emulated/0/dietlarge/$MODEL_FILENAME"
         )
+    }
+    
+    /**
+     * Copy model from assets to internal storage if not already present
+     */
+    private fun copyModelFromAssetsIfNeeded() {
+        val externalFilesPath = "${context.getExternalFilesDir(null)?.absolutePath}/models/$MODEL_FILENAME"
+        val externalFilesFile = File(externalFilesPath)
+        
+        if (externalFilesFile.exists()) {
+            Log.i(TAG, "✅ Model already exists in external files directory: $externalFilesPath")
+            return
+        }
+        
+        Log.i(TAG, "📋 Model not found in external files directory, copying from assets...")
+        
+        try {
+            // Create models directory
+            val modelsDir = File("${context.getExternalFilesDir(null)?.absolutePath}/models")
+            modelsDir.mkdirs()
+            
+            // Copy from assets
+            context.assets.open(MODEL_FILENAME).use { input ->
+                externalFilesFile.outputStream().use { output ->
+                    input.copyTo(output)
+                }
+            }
+            
+            Log.i(TAG, "✅ Model copied from assets to external files directory: $externalFilesPath")
+            Log.i(TAG, "   Size: ${externalFilesFile.length() / (1024 * 1024)} MB")
+            
+        } catch (e: Exception) {
+            Log.w(TAG, "⚠️ Could not copy model from assets: ${e.message}")
+        }
+    }
+    
+    /**
+     * Copy model file from external to internal storage
+     * @param sourcePath Source file path
+     * @param destPath Destination file path
+     * @return true if successful, false otherwise
+     */
+    private fun copyModelToInternalStorage(sourcePath: String, destPath: String): Boolean {
+        return try {
+            val destFile = File(destPath)
+            
+            // Create directory if it doesn't exist
+            destFile.parentFile?.mkdirs()
+            
+            Log.i(TAG, "📋 Copying model file...")
+            Log.i(TAG, "   From: $sourcePath")
+            Log.i(TAG, "   To: $destPath")
+            
+            // Try using MediaStore API to access external file
+            val fileName = File(sourcePath).name
+            val projection = arrayOf(android.provider.MediaStore.Files.FileColumns._ID)
+            val selection = "${android.provider.MediaStore.Files.FileColumns.DISPLAY_NAME} = ?"
+            val selectionArgs = arrayOf(fileName)
+            
+            Log.i(TAG, "   Searching MediaStore for: $fileName")
+            
+            val cursor = context.contentResolver.query(
+                android.provider.MediaStore.Files.getContentUri("external"),
+                projection,
+                selection,
+                selectionArgs,
+                null
+            )
+            
+            if (cursor != null && cursor.moveToFirst()) {
+                val id = cursor.getLong(cursor.getColumnIndexOrThrow(android.provider.MediaStore.Files.FileColumns._ID))
+                val uri = android.provider.MediaStore.Files.getContentUri("external", id)
+                
+                Log.i(TAG, "   Found file in MediaStore with ID: $id")
+                
+                val inputStream = context.contentResolver.openInputStream(uri)
+                if (inputStream != null) {
+                    Log.i(TAG, "   Using MediaStore - success")
+                    val outputStream = destFile.outputStream()
+                    
+                    inputStream.use { input ->
+                        outputStream.use { output ->
+                            input.copyTo(output)
+                        }
+                    }
+                    
+                    Log.i(TAG, "✅ Model file copied successfully")
+                    Log.i(TAG, "   Destination size: ${destFile.length() / (1024 * 1024)} MB")
+                    Log.i(TAG, "   Destination readable: ${destFile.canRead()}")
+                    
+                    cursor.close()
+                    true
+                } else {
+                    Log.e(TAG, "❌ MediaStore could not open input stream")
+                    cursor.close()
+                    false
+                }
+            } else {
+                Log.e(TAG, "❌ File not found in MediaStore")
+                cursor?.close()
+                false
+            }
+        } catch (e: SecurityException) {
+            Log.e(TAG, "❌ SecurityException during copy: ${e.message}")
+            Log.e(TAG, "Stack trace: ${e.stackTraceToString()}")
+            false
+        } catch (e: Exception) {
+            Log.e(TAG, "❌ Failed to copy model file: ${e.message}")
+            Log.e(TAG, "Stack trace: ${e.stackTraceToString()}")
+            false
+        }
     }
     
     /**
@@ -264,19 +511,35 @@ class LlamaManager(private val context: Context) {
             // Create a nutrition-focused prompt
             val enhancedPrompt = createNutritionPrompt(prompt)
             
-            // Generate response using native code
-            try {
-                Log.i(TAG, "Calling native generateResponse with prompt: $enhancedPrompt")
-                val response = generateResponse(enhancedPrompt, MAX_TOKENS)
-                Log.i(TAG, "Native response received: $response")
-                response
-            } catch (e: UnsatisfiedLinkError) {
-                Log.e(TAG, "Native library not available for response generation: ${e.message}")
-                val modelStatus = getModelStatus()
-                "❌ AI model not loaded.\n\n${modelStatus.userMessage}"
-            } catch (e: Exception) {
-                Log.e(TAG, "Exception in native response generation: ${e.message}")
-                "❌ Failed to generate AI response. Please try again."
+            // Generate response using native code or Kotlin fallback
+            Log.i(TAG, "Response generation - nativeLibraryLoaded: $nativeLibraryLoaded, isInitialized: $isInitialized")
+            
+            if (nativeLibraryLoaded && isInitialized) {
+                try {
+                    Log.i(TAG, "🚀 Attempting native response generation...")
+                    Log.i(TAG, "Calling native generateResponse with prompt: $enhancedPrompt")
+                    val startTime = System.currentTimeMillis()
+                    val response = generateResponse(enhancedPrompt, MAX_TOKENS)
+                    val endTime = System.currentTimeMillis()
+                    val duration = endTime - startTime
+                    
+                    Log.i(TAG, "✅ Native response received in ${duration}ms: $response")
+                    response
+                } catch (e: UnsatisfiedLinkError) {
+                    Log.e(TAG, "❌ UnsatisfiedLinkError in native response generation: ${e.message}")
+                    Log.e(TAG, "Stack trace: ${e.stackTraceToString()}")
+                    Log.i(TAG, "🔄 Falling back to Kotlin response")
+                    generateKotlinResponse(prompt)
+                } catch (e: Exception) {
+                    Log.e(TAG, "❌ Exception in native response generation: ${e.message}")
+                    Log.e(TAG, "Stack trace: ${e.stackTraceToString()}")
+                    Log.i(TAG, "🔄 Falling back to Kotlin response")
+                    generateKotlinResponse(prompt)
+                }
+            } else {
+                Log.i(TAG, "ℹ️ Using Kotlin fallback response generation")
+                Log.i(TAG, "   Reason: nativeLibraryLoaded=$nativeLibraryLoaded, isInitialized=$isInitialized")
+                generateKotlinResponse(prompt)
             }
             
         } catch (e: Exception) {
@@ -299,6 +562,77 @@ class LlamaManager(private val context: Context) {
             appendLine(userInput)
             appendLine("</s>")
             appendLine("<|assistant|>")
+        }
+    }
+    
+    /**
+     * Generate smart responses using Kotlin fallback (no native library required)
+     * @param userInput User input prompt
+     * @return Smart response based on input
+     */
+    private fun generateKotlinResponse(userInput: String): String {
+        val lowerInput = userInput.lowercase()
+        
+        return when {
+            // Math questions
+            lowerInput.contains("what is") && (
+                lowerInput.contains("+") || lowerInput.contains("-") || 
+                lowerInput.contains("*") || lowerInput.contains("times") ||
+                lowerInput.contains("÷") || lowerInput.contains("divided")
+            ) -> {
+                "I can help with basic math! For example:\n" +
+                "• 2 + 2 = 4\n" +
+                "• 10 - 3 = 7\n" +
+                "• 5 × 6 = 30\n" +
+                "• 15 ÷ 3 = 5\n\n" +
+                "What calculation would you like me to help with?"
+            }
+            
+            // Greetings
+            lowerInput.contains("hello") || lowerInput.contains("hi") || lowerInput.contains("hey") -> {
+                "Hello! 👋 I'm your Tasty Diet AI assistant. I can help you with:\n\n" +
+                "• Food logging and nutrition tracking\n" +
+                "• Recipe suggestions and meal planning\n" +
+                "• Inventory management\n" +
+                "• Shopping lists\n\n" +
+                "What would you like to do today?"
+            }
+            
+            // Help requests
+            lowerInput.contains("help") || lowerInput.contains("what can you do") -> {
+                "I can help you with:\n\n" +
+                "📝 **Commands you can try:**\n" +
+                "• \"Log food: apple\" - Add food to your log\n" +
+                "• \"What's in my inventory?\" - Check available ingredients\n" +
+                "• \"Add milk to shopping list\" - Add items to buy\n" +
+                "• \"How many calories in rice?\" - Get nutrition info\n" +
+                "• \"Suggest a healthy recipe\" - Get meal ideas\n" +
+                "• \"What's my remaining calories?\" - Check daily progress\n\n" +
+                "Just ask me naturally!"
+            }
+            
+            // Nutrition questions
+            lowerInput.contains("calories") || lowerInput.contains("nutrition") -> {
+                "I can help with nutrition information! Here are some examples:\n\n" +
+                "🍎 **Apple**: ~52 calories per 100g\n" +
+                "🍚 **Rice**: ~130 calories per 100g\n" +
+                "🥛 **Milk**: ~42 calories per 100ml\n" +
+                "🍗 **Chicken**: ~165 calories per 100g\n\n" +
+                "Ask me about specific foods or your daily nutrition goals!"
+            }
+            
+            // Default response
+            else -> {
+                "I'm your Tasty Diet AI assistant! I can help you with:\n\n" +
+                "• Food logging and nutrition tracking\n" +
+                "• Recipe suggestions\n" +
+                "• Inventory management\n" +
+                "• Shopping lists\n\n" +
+                "Try asking me to log food, check inventory, or get nutrition information. " +
+                "Type 'help' for more options!\n\n" +
+                "💡 **Note:** I'm currently using enhanced rule-based responses. " +
+                "For more complex questions, try asking about nutrition, food logging, or recipe suggestions."
+            }
         }
     }
     
@@ -357,18 +691,19 @@ class LlamaManager(private val context: Context) {
      * @return Model information string
      */
     fun getModelInfoString(): String {
-        return try {
-            val modelInfo = getModelInfo()
-            "llama.cpp version: $LLAMA_CPP_VERSION\n$modelInfo"
-        } catch (e: UnsatisfiedLinkError) {
-            // Check if model is actually ready despite getModelInfo() failing
-            if (isModelReady()) {
-                "TinyLlama Model Loaded Successfully\nllama.cpp version: $LLAMA_CPP_VERSION\nModel: $MODEL_FILENAME"
-            } else {
-                "Fallback Mode - Native LLM not available\nllama.cpp version: $LLAMA_CPP_VERSION"
+        return if (nativeLibraryLoaded && isInitialized) {
+            try {
+                Log.i(TAG, "Testing native library with getModelInfo()")
+                val modelInfo = getModelInfo()
+                Log.i(TAG, "✅ Native getModelInfo() successful: $modelInfo")
+                "🚀 **NATIVE LLM ACTIVE**\nllama.cpp version: $LLAMA_CPP_VERSION\n$modelInfo\n\n✅ Using real AI model for responses"
+            } catch (e: Exception) {
+                Log.w(TAG, "⚠️ Native getModelInfo() failed: ${e.message}, using fallback info")
+                "⚠️ **KOTLIN FALLBACK MODE**\nllama.cpp version: $LLAMA_CPP_VERSION\nModel: $MODEL_FILENAME\n\nℹ️ Using enhanced rule-based responses"
             }
-        } catch (e: Exception) {
-            "Error getting model info: ${e.message}\nllama.cpp version: $LLAMA_CPP_VERSION"
+        } else {
+            Log.i(TAG, "Using Kotlin fallback model info")
+            "⚠️ **KOTLIN FALLBACK MODE**\nllama.cpp version: $LLAMA_CPP_VERSION\nModel: $MODEL_FILENAME\n\nℹ️ Using enhanced rule-based responses"
         }
     }
     

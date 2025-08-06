@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.speech.tts.TextToSpeech
 import android.speech.tts.UtteranceProgressListener
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.tastydiet.AppDatabase
@@ -27,6 +28,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.delay
 import java.text.SimpleDateFormat
 import java.util.*
+import java.io.File
 
 /**
  * ViewModel for AI Assistant functionality
@@ -130,27 +132,56 @@ class AIAssistantViewModel(application: Application) : AndroidViewModel(applicat
     private fun initializeLLM() {
         viewModelScope.launch {
             try {
+                Log.d("AIAssistantViewModel", "=== STARTING LLM INITIALIZATION ===")
+                
                 val modelStatus = llamaManager.getModelStatus()
+                Log.d("AIAssistantViewModel", "Model status: isAvailable=${modelStatus.isAvailable}, foundPath=${modelStatus.foundPath}")
                 
                 if (modelStatus.isAvailable) {
+                    Log.d("AIAssistantViewModel", "Model is available, attempting to initialize...")
                     // Try to initialize the model
                     val success = llamaManager.initializeModel()
                     if (success) {
+                        Log.d("AIAssistantViewModel", "Model initialized successfully")
                         addMessage(ChatMessage(
                             text = modelStatus.userMessage,
                             isUser = false,
                             timestamp = getCurrentTimestamp()
                         ))
                     } else {
+                        Log.d("AIAssistantViewModel", "Model found but failed to initialize")
+                        
+                        // Get detailed error information
+                        val modelFile = File(modelStatus.foundPath!!)
+                        val detailedErrorMessage = buildString {
+                            appendLine("⚠️ **MODEL INITIALIZATION FAILED**")
+                            appendLine()
+                            appendLine("📁 **Model File Details:**")
+                            appendLine("• Path: `${modelStatus.foundPath}`")
+                            appendLine("• Size: ${modelFile.length() / (1024 * 1024)} MB")
+                            appendLine("• Readable: ${if (modelFile.canRead()) "✅ Yes" else "❌ No"}")
+                            appendLine()
+                            appendLine("🔍 **Possible Causes:**")
+                            appendLine("• Model format incompatibility")
+                            appendLine("• Insufficient device memory")
+                            appendLine("• Native library error")
+                            appendLine("• File corruption")
+                            appendLine()
+                            appendLine("💡 **Solution:** Using enhanced Kotlin fallback responses")
+                        }
+                        
                         addMessage(ChatMessage(
-                            text = "⚠️ Model found but failed to initialize. Using fallback responses.",
+                            text = detailedErrorMessage,
                             isUser = false,
                             timestamp = getCurrentTimestamp()
                         ))
                     }
                 } else {
+                    Log.d("AIAssistantViewModel", "Model not available, showing detailed message")
                     // Model not available - show detailed message with copyable paths
                     val detailedMessage = buildString {
+                        appendLine("🚨 **AI MODEL NOT FOUND**")
+                        appendLine()
                         appendLine(modelStatus.userMessage)
                         appendLine()
                         appendLine("📋 **Copy these paths to clipboard:**")
@@ -166,8 +197,12 @@ class AIAssistantViewModel(application: Application) : AndroidViewModel(applicat
                         appendLine("2. Create the directory if it doesn't exist")
                         appendLine("3. Place the model file there")
                         appendLine("4. Restart the app")
+                        appendLine()
+                        appendLine("🔍 **Debug Info:**")
+                        appendLine("Searched paths: ${modelStatus.missingPaths.joinToString(", ")}")
                     }
                     
+                    Log.d("AIAssistantViewModel", "Adding detailed message: $detailedMessage")
                     addMessage(ChatMessage(
                         text = detailedMessage,
                         isUser = false,
@@ -175,6 +210,7 @@ class AIAssistantViewModel(application: Application) : AndroidViewModel(applicat
                     ))
                 }
             } catch (e: Exception) {
+                Log.e("AIAssistantViewModel", "Error in initializeLLM: ${e.message}", e)
                 addMessage(ChatMessage(
                     text = "⚠️ Error loading local AI model: ${e.message}",
                     isUser = false,
@@ -245,6 +281,21 @@ class AIAssistantViewModel(application: Application) : AndroidViewModel(applicat
             timestamp = getCurrentTimestamp()
         )
         addMessage(welcomeMessage)
+        
+        // Add a test message to verify enhanced UI is working
+        val testMessage = ChatMessage(
+            text = "🧪 **TEST: Enhanced UI Working**\n\n" +
+                    "📋 **Copy these test paths:**\n" +
+                    "1. `/test/path/1`\n" +
+                    "2. `/test/path/2`\n\n" +
+                    "💡 **Test Instructions:**\n" +
+                    "1. Copy a path above\n" +
+                    "2. Test the UI\n" +
+                    "3. Verify formatting works",
+            isUser = false,
+            timestamp = getCurrentTimestamp()
+        )
+        addMessage(testMessage)
     }
     
     /**
